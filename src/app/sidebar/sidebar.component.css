@@ -1,0 +1,11 @@
+.main-color{
+    color: #FABB18;
+}
+.font-a{
+    color:black;
+}
+.active{
+    background-color: black !important;
+    border-radius: 8px;
+    color: white;
+}
