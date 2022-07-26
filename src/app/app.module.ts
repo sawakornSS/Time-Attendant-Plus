@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ReportEmployeeComponent } from './report-employee/report-employee.component';
 import { ImportTimeAttendantComponent } from './import-time-attendant/import-time-attendant.component';
+import { CreateRequestComponent } from './create-request/create-request.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ImportTimeAttendantComponent } from './import-time-attendant/import-tim
     UserProfileComponent,
     ReportEmployeeComponent,
     ImportTimeAttendantComponent,
+    CreateRequestComponent,
     
   ],
   imports: [
