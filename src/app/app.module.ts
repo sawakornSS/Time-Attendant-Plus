@@ -9,6 +9,11 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { WidgetComponent } from './widget/widget.component';
 import { ApproveComponent } from './approve/approve.component';
+import { RequestManagementComponent } from './request-management/request-management.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ReportEmployeeComponent } from './report-employee/report-employee.component';
+import { ImportTimeAttendantComponent } from './import-time-attendant/import-time-attendant.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { ApproveComponent } from './approve/approve.component';
     FooterComponent,
     HomeComponent,
     WidgetComponent,
-    ApproveComponent
+    ApproveComponent,
+    RequestManagementComponent,
+    UserProfileComponent,
+    ReportEmployeeComponent,
+    ImportTimeAttendantComponent,
+    
   ],
   imports: [
     BrowserModule,
