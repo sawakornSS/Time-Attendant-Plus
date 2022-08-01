@@ -1,7 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "b8e2fabf-b607-487d-8cf7-c0b896db114a"
+    "analytics": "b8e2fabf-b607-487d-8cf7-c0b896db114a",
+    "defaultCollection": "@ngrx/schematics",
+    "schematicCollections": [
+      "@ngrx/schematics",
+      "@ngrx/schematics"
+    ]
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -33,7 +38,8 @@
               "src/styles.css",
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css",
-              "node_modules/admin-lte/dist/css/adminlte.css"
+              "node_modules/admin-lte/dist/css/adminlte.css",
+              "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css"
             ],
             "scripts": [
               "node_modules/admin-lte/plugins/jquery/jquery.js",
@@ -45,7 +51,10 @@
               "node_modules/admin-lte/plugins/raphael/raphael.js",
               "node_modules/admin-lte/plugins/jquery-mapael/jquery.mapael.js",
               "node_modules/admin-lte/plugins/chart.js/Chart.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+              "node_modules/admin-lte/dist/js/pages/dashboard2.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
