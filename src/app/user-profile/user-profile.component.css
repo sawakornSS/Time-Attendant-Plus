@@ -1,0 +1,31 @@
+.card-header{
+    color: white;
+    background-color: #FABF26;
+    font-size: 24px;
+    font-weight: 600;
+}
+.text-detail{
+    color: #808080;
+    font-weight: normal;
+}
+.text-title{
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+img{
+    width: 160px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.media{
+    align-items: center;
+}
+.bg-info{
+    background-color: #fff3dc !important;
+}
+.color-main{
+    color: #FABF26;
+}
