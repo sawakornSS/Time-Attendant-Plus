@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,6 +19,8 @@ import { CreateRequestComponent } from './create-request/create-request.componen
 import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,12 +36,14 @@ import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.com
     ImportTimeAttendantComponent,
     CreateRequestComponent,
     AddApproveFlowComponent,
+
     
   ],
-  imports: [
+  imports: [ 
+    FormsModule,  
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
