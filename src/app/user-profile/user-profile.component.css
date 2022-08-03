@@ -4,13 +4,18 @@
     font-size: 24px;
     font-weight: 600;
 }
+.card-body{
+    margin-left: 35px;
+}
 .text-detail{
     color: #808080;
-    font-weight: normal;
+    font-weight: 600;
+    font-size: 18px;
+
 }
 .text-title{
     color: black;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -29,3 +34,21 @@ img{
 .color-main{
     color: #FABF26;
 }
+
+/* .wallpaper{
+    display: block;
+
+  position: relative;
+}
+.wallpaper::after{
+    content: "";
+    background-image: url("/assets/img/wallpaper/wall_2.jpg");
+    background-position: center;
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+} */

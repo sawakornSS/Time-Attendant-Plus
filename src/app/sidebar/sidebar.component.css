@@ -9,3 +9,24 @@
     border-radius: 8px;
     color: white;
 }
+.wallpaper{
+    display: block;
+  /* position: relative; */
+}
+.wallpaper::after{
+    content: "";
+    background-image: url("/assets/img/wallpaper/wall_9.jpg");
+    /* background-image: url("/assets/img/wallpaper/wall_6.jpg"); */
+    background-position: center;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
+.sidebar{
+    font-size: 14px;
+    font-weight: 600;
+}
