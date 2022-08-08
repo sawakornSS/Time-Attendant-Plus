@@ -54,7 +54,8 @@
               "node_modules/admin-lte/dist/js/pages/dashboard2.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/daterangepicker/daterangepicker.js"
             ]
           },
           "configurations": {
