@@ -2,7 +2,6 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": "b8e2fabf-b607-487d-8cf7-c0b896db114a",
-    "defaultCollection": "@ngrx/schematics",
     "schematicCollections": [
       "@ngrx/schematics",
       "@ngrx/schematics"
@@ -128,6 +127,5 @@
         }
       }
     }
-  },
-  "defaultProject": "my-admin-lte-3-test"
+  }
 }
