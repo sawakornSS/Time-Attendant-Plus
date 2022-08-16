@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Request } from '../models/request.model';
+import { RequestService } from '../services/request.service';
+
 
 @Component({
   selector: 'app-request-management',
@@ -8,13 +11,25 @@ import { Component, OnInit } from '@angular/core';
 export class RequestManagementComponent implements OnInit {
 
 
-  constructor() { }
+  requests : Request[] = [];
+  constructor(private requestservice:RequestService) { }
   
   ngOnInit(): void {
-
-
-
+    
+    this.requestservice.GetAllRequest()
+    .subscribe({
+      next: (requests) => {
+        this.requests = requests;
+        //console.log(requests)
+      },
+      error: (response) =>{
+        console.log(response);
+      }
+    })
+    
   }
 
 
 }
+
+
