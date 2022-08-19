@@ -1,4 +1,4 @@
-﻿using backend_TimeAttPlus.Models;
+using backend_TimeAttPlus.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_TimeAttPlus.Data
@@ -9,11 +9,12 @@ namespace backend_TimeAttPlus.Data
         {
 
         }
-        //Dbset
+    //Dbset
+    public DbSet<Request> tbl_LeaveRecords { get; set; }
+    public DbSet<TypeLeave> tbl_LeaveType { get; set; }
         
 
         
 
     }
 }
- 

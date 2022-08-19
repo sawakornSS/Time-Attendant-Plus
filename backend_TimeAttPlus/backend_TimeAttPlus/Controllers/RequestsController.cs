@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,8 +15,9 @@ namespace backend_TimeAttPlus.Controllers
     public class RequestsController : Controller
     {
         private readonly RequestDbContext _requestDbcontext;
+        
 
-        public RequestsController(RequestDbContext context)
+    public RequestsController(RequestDbContext context)
         {
             _requestDbcontext = context;
         }
@@ -30,14 +31,17 @@ namespace backend_TimeAttPlus.Controllers
           return Ok(request);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllTypeLeave()
-        {
-            var typeleave = await _requestDbcontext.tbl_LeaveType.ToListAsync();
+        // GET: Leavetype
+       [HttpGet]
+       [Route("GetLeaveType")]
+       public async Task<IActionResult> GetAllTypeLeave()
+      {
+          var typeleave = await _requestDbcontext.tbl_LeaveType.ToListAsync();
             return Ok(typeleave);
         }
 
         [HttpPost]
+        [Route("AddRequest")]
         public async Task<IActionResult> AddLeave([FromBody]Request LeaveRequest) 
         {
             
@@ -46,6 +50,7 @@ namespace backend_TimeAttPlus.Controllers
 
             return Ok(LeaveRequest);
         }
+
 
 
     }

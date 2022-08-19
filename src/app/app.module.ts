@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DataTablesModule } from "angular-datatables";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -17,6 +17,8 @@ import { ReportEmployeeComponent } from './report-employee/report-employee.compo
 import { ImportTimeAttendantComponent } from './import-time-attendant/import-time-attendant.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -35,7 +37,8 @@ import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.com
     ImportTimeAttendantComponent,
     CreateRequestComponent,
     AddApproveFlowComponent,
-
+    
+   
     
   ],
   imports: [ 
@@ -43,8 +46,11 @@ import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
-
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    DataTablesModule
    
   ],
   providers: [],

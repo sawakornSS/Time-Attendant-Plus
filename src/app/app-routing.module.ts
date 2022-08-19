@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { WidgetComponent } from './widget/widget.component';
@@ -10,6 +10,7 @@ import { ReportEmployeeComponent } from './report-employee/report-employee.compo
 import { ImportTimeAttendantComponent } from './import-time-attendant/import-time-attendant.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.component';
+
 
 const routes: Routes = [
   {path: "", pathMatch: "full", redirectTo: "/home"},
@@ -22,9 +23,14 @@ const routes: Routes = [
   {path: "add-request", component: CreateRequestComponent},
   {path: "add-approveflow", component: AddApproveFlowComponent},
 ];
+ 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+ 
+  
+
+  }
