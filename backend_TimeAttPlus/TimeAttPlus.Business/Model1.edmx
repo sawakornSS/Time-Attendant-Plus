@@ -1,0 +1,1270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_ApproveState">
+          <Key>
+            <PropertyRef Name="AppStateNo" />
+          </Key>
+          <Property Name="AppStateNo" Type="int" Nullable="false" />
+          <Property Name="AppStateCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="AppStateOrder" Type="int" Nullable="false" />
+          <Property Name="RequestFlag" Type="bit" />
+          <Property Name="AppFormatNo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ModuleNo" Type="int" Nullable="false" />
+          <Property Name="IsObsoleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_ApproveType">
+          <Key>
+            <PropertyRef Name="AppTypeNo" />
+          </Key>
+          <Property Name="AppTypeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppTypeCode" Type="varchar" MaxLength="2" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbCSIHoliday">
+          <Key>
+            <PropertyRef Name="SiteID" />
+            <PropertyRef Name="Holiday" />
+          </Key>
+          <Property Name="SiteID" Type="int" Nullable="false" />
+          <Property Name="Holiday" Type="datetime" Nullable="false" />
+          <Property Name="HolidayDescription" Type="varchar" MaxLength="250" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_ApproveRequest">
+          <Key>
+            <PropertyRef Name="LeaveStatus" />
+          </Key>
+          <Property Name="LeaveStatus" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AbbrDesc" Type="varchar" MaxLength="50" />
+          <Property Name="IconPath" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbl_LeaveApprovers">
+          <Key>
+            <PropertyRef Name="LeaveNo" />
+            <PropertyRef Name="ApproverNo" />
+            <PropertyRef Name="AppStateNo" />
+          </Key>
+          <Property Name="LeaveNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ApproverNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AppStateNo" Type="int" Nullable="false" />
+          <Property Name="Approved" Type="tinyint" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="Reason" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_LeaveRecords">
+          <Key>
+            <PropertyRef Name="LeaveNo" />
+          </Key>
+          <Property Name="LeaveNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="EmployeeNo" Type="varchar" MaxLength="50" />
+          <Property Name="LeaveType" Type="varchar" MaxLength="50" />
+          <Property Name="LeaveOther" Type="varchar" MaxLength="50" />
+          <Property Name="Reason" Type="varchar(max)" />
+          <Property Name="LeaveDtTmFrom" Type="datetime" />
+          <Property Name="LeaveDtTmTo" Type="datetime" />
+          <Property Name="LeaveDay" Type="smallint" />
+          <Property Name="LeaveHour" Type="smallint" />
+          <Property Name="LeaveMin" Type="smallint" />
+          <Property Name="CCReceiver" Type="varchar" MaxLength="50" />
+          <Property Name="CurrentleaveState" Type="int" />
+          <Property Name="LeaveStatus" Type="varchar" MaxLength="50" />
+          <Property Name="TransferDate" Type="smalldatetime" />
+          <Property Name="ProjectSiteCode" Type="int" />
+          <Property Name="ProjectSiteAllowance" Type="tinyint" />
+          <Property Name="EPS_LeaveNo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_LeaveType">
+          <Key>
+            <PropertyRef Name="LeaveType" />
+          </Key>
+          <Property Name="LeaveType" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LeaveGroupCode" Type="varchar" MaxLength="4" />
+          <Property Name="SpecificGender" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tbl_LimitLeaveMaster">
+          <Key>
+            <PropertyRef Name="LeaveType" />
+            <PropertyRef Name="EmployeeType" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="WorkYear" />
+          </Key>
+          <Property Name="LeaveType" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="EmployeeType" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="WorkYear" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="LeaveDay" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="DivideFirstYear" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_TimeAttendantImport">
+          <Key>
+            <PropertyRef Name="ImportID" />
+          </Key>
+          <Property Name="ImportID" Type="int" Nullable="false" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="50" />
+          <Property Name="UploadDate" Type="date" />
+          <Property Name="CurrentLeaveState" Type="int" />
+          <Property Name="LeaveStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'mydb.dbo.tbl_TimeAttendantImportDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_TimeAttendantImportDetail">
+          <Key>
+            <PropertyRef Name="ImportID" />
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Name="ImportID" Type="int" Nullable="false" />
+          <Property Name="DetailID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="varchar" MaxLength="50" />
+          <Property Name="LeaveNo" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeName" Type="varbinary" MaxLength="250" />
+          <Property Name="WorkDate" Type="datetime" />
+          <Property Name="WorkOnSiteStart" Type="char" MaxLength="10" />
+          <Property Name="WorkOnSiteStop" Type="char" MaxLength="10" />
+          <Property Name="SiteStartTime" Type="char" MaxLength="10" />
+          <Property Name="SiteStopTime" Type="char" MaxLength="10" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeNo" />
+          </Key>
+          <Property Name="EmployeeNo" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TitleNo" Type="tinyint" />
+          <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmployeeFirstNameThai" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmployeeLastNameThai" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmployeeNickName" Type="nvarchar" MaxLength="15" />
+          <Property Name="EmployeeType" Type="tinyint" />
+          <Property Name="CompanyNo" Type="int" />
+          <Property Name="OrganizationNo" Type="int" />
+          <Property Name="PositionNo" Type="int" />
+          <Property Name="StartWorkingDate" Type="datetime" />
+          <Property Name="EmployeeEMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="QuitDate" Type="datetime" />
+          <Property Name="UpdateUser" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="tblEmployeeOrganization">
+          <Key>
+            <PropertyRef Name="EmployeeNo" />
+            <PropertyRef Name="OrganizationNo" />
+            <PropertyRef Name="PositionNo" />
+          </Key>
+          <Property Name="EmployeeNo" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="OrganizationNo" Type="int" Nullable="false" />
+          <Property Name="PositionNo" Type="int" Nullable="false" />
+          <Property Name="EmployeeOrganizationRate" Type="tinyint" />
+          <Property Name="IsMain" Type="bit" />
+          <Property Name="StartEffectiveDate" Type="smalldatetime" />
+          <Property Name="EndEffectiveDate" Type="smalldatetime" />
+          <Property Name="EmployeeOrganizationFlag" Type="bit" />
+          <Property Name="UpdateUser" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="smalldatetime" />
+          <Property Name="PrevEmployeeNo" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblOrganization">
+          <Key>
+            <PropertyRef Name="OrganizationNo" />
+          </Key>
+          <Property Name="OrganizationNo" Type="int" Nullable="false" />
+          <Property Name="OrganizationAlias" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="OrganizationName" Type="nvarchar" MaxLength="100" />
+          <Property Name="StartDate" Type="smalldatetime" />
+          <Property Name="CancelDate" Type="smalldatetime" />
+          <Property Name="OrganizationCode" Type="nvarchar" MaxLength="5" />
+          <Property Name="OrganizationFlag" Type="int" Nullable="false" />
+          <Property Name="UpdateUser" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="smalldatetime" />
+          <Property Name="ParentOrgNo" Type="int" />
+        </EntityType>
+        <EntityType Name="tblPart2Master">
+          <Key>
+            <PropertyRef Name="Part2ID" />
+          </Key>
+          <Property Name="Part2ID" Type="int" Nullable="false" />
+          <Property Name="FunctionCode" Type="varchar" MaxLength="10" />
+          <Property Name="Function" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="SeqNo" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CancelDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblPosition">
+          <Key>
+            <PropertyRef Name="PositionNo" />
+          </Key>
+          <Property Name="PositionNo" Type="int" Nullable="false" />
+          <Property Name="pwPosition" Type="char" MaxLength="7" />
+          <Property Name="PositionAlias" Type="nvarchar" MaxLength="15" />
+          <Property Name="PositionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PositionStartDate" Type="smalldatetime" />
+          <Property Name="PositionCancelDate" Type="smalldatetime" />
+          <Property Name="PositionLevel" Type="tinyint" />
+          <Property Name="UpdateUser" Type="nvarchar" MaxLength="10" />
+          <Property Name="UpdateDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="VersionNo" />
+          </Key>
+          <Property Name="ProjectID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="VersionNo" Type="smallint" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProjectNameAlias" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustomerCode" Type="varchar" MaxLength="10" />
+          <Property Name="ProjectCode" Type="varchar" MaxLength="10" />
+          <Property Name="ProjectTypeID" Type="int" />
+          <Property Name="ProjectGroupID" Type="int" />
+          <Property Name="GroupOwnerID" Type="int" Nullable="false" />
+          <Property Name="CSIGroupCompanyID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerCompanyID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerCompanyAlias" Type="varchar" MaxLength="20" />
+          <Property Name="EndUserCompanyID" Type="varchar" MaxLength="15" />
+          <Property Name="TransportationFee" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="HotelAllowance" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TravelingExpense" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="StatusCode" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="4000" />
+          <Property Name="ContractTypeNo" Type="int" />
+          <Property Name="SiteName" Type="varchar" MaxLength="100" />
+          <Property Name="OnSiteWorkHr" Type="int" />
+          <Property Name="DefaultOnsiteWorkCalendarSeqNo" Type="int" />
+          <Property Name="StartDatePlan" Type="datetime" />
+          <Property Name="FinishDatePlan" Type="datetime" />
+          <Property Name="StartDateActual" Type="datetime" />
+          <Property Name="FinishDateActual" Type="datetime" />
+          <Property Name="WaranteeStartDatePlan" Type="datetime" />
+          <Property Name="WaranteeFinishDatePlan" Type="datetime" />
+          <Property Name="WaranteeStartDateActual" Type="datetime" />
+          <Property Name="WaranteeFinishDateActual" Type="datetime" />
+          <Property Name="ProjectRefDoc" Type="varchar" MaxLength="100" />
+          <Property Name="SMCProjectID" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="CreateUser" Type="varchar" MaxLength="10" />
+          <Property Name="UpdateUser" Type="varchar" MaxLength="10" />
+          <Property Name="CancelDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="tblProjectMember">
+          <Key>
+            <PropertyRef Name="SeqID" />
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="VersionNo" />
+            <PropertyRef Name="Part2ID" />
+          </Key>
+          <Property Name="SeqID" Type="int" Nullable="false" />
+          <Property Name="ProjectID" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="VersionNo" Type="smallint" Nullable="false" />
+          <Property Name="Part2ID" Type="int" Nullable="false" />
+          <Property Name="StaffID" Type="varchar" MaxLength="10" />
+          <Property Name="StaffName" Type="varchar" MaxLength="100" />
+          <Property Name="MemberTypeCode" Type="varchar" MaxLength="1" />
+          <Property Name="PositionIncharge" Type="varchar" MaxLength="10" />
+          <Property Name="PlanStartDate" Type="datetime" />
+          <Property Name="PlanFinishDate" Type="datetime" />
+          <Property Name="PlanEffortRate" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="AcctualStartDate" Type="datetime" />
+          <Property Name="AcctualFinishDate" Type="datetime" />
+          <Property Name="AcctualEffortRate" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="TransportFee" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="OnSiteAllowance" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="SpecialistFee" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="OtherExpense" Type="varchar" MaxLength="100" />
+          <Property Name="OnSiteStart" Type="datetime" />
+          <Property Name="OnSiteFinish" Type="datetime" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="CancelDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbOnSiteEmployee">
+          <Key>
+            <PropertyRef Name="RunningID" />
+          </Key>
+          <Property Name="RunningID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="SiteID" Type="int" Nullable="false" />
+          <Property Name="StartOnSite" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="StopOnSite" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="LocationOnSite" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbSiteMaster">
+          <Key>
+            <PropertyRef Name="SiteID" />
+          </Key>
+          <Property Name="SiteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ManagerID" Type="int" Nullable="false" />
+          <Property Name="SiteStartTime" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="SiteStopTime" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="WorkOnSiteStart" Type="varchar" MaxLength="8" />
+          <Property Name="WorkOnSiteStop" Type="varchar" MaxLength="8" />
+          <Property Name="DeleteFlag" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="StartLunch" Type="varchar" MaxLength="8" />
+          <Property Name="EndLunch" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="tbTimeAttendantUpdate">
+          <Key>
+            <PropertyRef Name="TimeAttendantID" />
+          </Key>
+          <Property Name="TimeAttendantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="SystemIN" Type="datetime" />
+          <Property Name="SystemOUT" Type="datetime" />
+          <Property Name="HRMIN" Type="datetime" />
+          <Property Name="HRMOUT" Type="datetime" />
+          <Property Name="SiteStartTime" Type="char" MaxLength="8" />
+          <Property Name="SiteStopTime" Type="char" MaxLength="8" />
+          <Property Name="SiteAllowance" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="50" />
+          <Property Name="Complete" Type="bit" Nullable="false" />
+          <Property Name="ManualAllowance" Type="int" Nullable="false" />
+          <Property Name="SiteID" Type="int" Nullable="false" />
+          <Property Name="WorkOnSiteIN" Type="datetime" />
+          <Property Name="WorkOnSiteOUT" Type="datetime" />
+          <Property Name="WorkOnSiteStart" Type="char" MaxLength="8" />
+          <Property Name="WorkOnSiteStop" Type="char" MaxLength="8" />
+          <Property Name="LFMUpdated" Type="datetime" />
+          <Property Name="LeaveNo" Type="varchar" MaxLength="10" />
+          <Property Name="TransportFeeTypeID" Type="smallint" />
+          <Property Name="NoLateFlag" Type="tinyint" />
+        </EntityType>
+        <Association Name="FK_tblProject2_tblOrganization">
+          <End Role="tblOrganization" Type="Self.tblOrganization" Multiplicity="1" />
+          <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrganization">
+              <PropertyRef Name="OrganizationNo" />
+            </Principal>
+            <Dependent Role="tblProject">
+              <PropertyRef Name="GroupOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMember2_tblPartItemMasterII">
+          <End Role="tblPart2Master" Type="Self.tblPart2Master" Multiplicity="1" />
+          <End Role="tblProjectMember" Type="Self.tblProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPart2Master">
+              <PropertyRef Name="Part2ID" />
+            </Principal>
+            <Dependent Role="tblProjectMember">
+              <PropertyRef Name="Part2ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbOnSiteEmployee_tbSiteMaster">
+          <End Role="tbSiteMaster" Type="Self.tbSiteMaster" Multiplicity="1" />
+          <End Role="tbOnSiteEmployee" Type="Self.tbOnSiteEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbSiteMaster">
+              <PropertyRef Name="SiteID" />
+            </Principal>
+            <Dependent Role="tbOnSiteEmployee">
+              <PropertyRef Name="SiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mydbModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ApproveState" EntityType="Self.tb_ApproveState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ApproveType" EntityType="Self.tb_ApproveType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCSIHoliday" EntityType="Self.tbCSIHoliday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ApproveRequest" EntityType="Self.tbl_ApproveRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LeaveApprovers" EntityType="Self.tbl_LeaveApprovers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LeaveRecords" EntityType="Self.tbl_LeaveRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LeaveType" EntityType="Self.tbl_LeaveType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LimitLeaveMaster" EntityType="Self.tbl_LimitLeaveMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TimeAttendantImport" EntityType="Self.tbl_TimeAttendantImport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployeeOrganization" EntityType="Self.tblEmployeeOrganization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrganization" EntityType="Self.tblOrganization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPart2Master" EntityType="Self.tblPart2Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPosition" EntityType="Self.tblPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProject" EntityType="Self.tblProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjectMember" EntityType="Self.tblProjectMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbOnSiteEmployee" EntityType="Self.tbOnSiteEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbSiteMaster" EntityType="Self.tbSiteMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTimeAttendantUpdate" EntityType="Self.tbTimeAttendantUpdate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TimeAttendantImportDetail" EntityType="Self.tbl_TimeAttendantImportDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[tbl_TimeAttendantImportDetail].[ImportID] AS [ImportID], 
+[tbl_TimeAttendantImportDetail].[DetailID] AS [DetailID], 
+[tbl_TimeAttendantImportDetail].[EmployeeID] AS [EmployeeID], 
+[tbl_TimeAttendantImportDetail].[LeaveNo] AS [LeaveNo], 
+[tbl_TimeAttendantImportDetail].[EmployeeName] AS [EmployeeName], 
+[tbl_TimeAttendantImportDetail].[WorkDate] AS [WorkDate], 
+[tbl_TimeAttendantImportDetail].[WorkOnSiteStart] AS [WorkOnSiteStart], 
+[tbl_TimeAttendantImportDetail].[WorkOnSiteStop] AS [WorkOnSiteStop], 
+[tbl_TimeAttendantImportDetail].[SiteStartTime] AS [SiteStartTime], 
+[tbl_TimeAttendantImportDetail].[SiteStopTime] AS [SiteStopTime], 
+[tbl_TimeAttendantImportDetail].[ProjectName] AS [ProjectName]
+FROM [dbo].[tbl_TimeAttendantImportDetail] AS [tbl_TimeAttendantImportDetail]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblProject2_tblOrganization" Association="Self.FK_tblProject2_tblOrganization">
+            <End Role="tblOrganization" EntitySet="tblOrganization" />
+            <End Role="tblProject" EntitySet="tblProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMember2_tblPartItemMasterII" Association="Self.FK_tblProjectMember2_tblPartItemMasterII">
+            <End Role="tblPart2Master" EntitySet="tblPart2Master" />
+            <End Role="tblProjectMember" EntitySet="tblProjectMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbOnSiteEmployee_tbSiteMaster" Association="Self.FK_tbOnSiteEmployee_tbSiteMaster">
+            <End Role="tbSiteMaster" EntitySet="tbSiteMaster" />
+            <End Role="tbOnSiteEmployee" EntitySet="tbOnSiteEmployee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_ApproveState">
+          <Key>
+            <PropertyRef Name="AppStateNo" />
+          </Key>
+          <Property Name="AppStateNo" Type="Int32" Nullable="false" />
+          <Property Name="AppStateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AppStateOrder" Type="Int32" Nullable="false" />
+          <Property Name="RequestFlag" Type="Boolean" />
+          <Property Name="AppFormatNo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ModuleNo" Type="Int32" Nullable="false" />
+          <Property Name="IsObsoleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_ApproveType">
+          <Key>
+            <PropertyRef Name="AppTypeNo" />
+          </Key>
+          <Property Name="AppTypeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppTypeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbCSIHoliday">
+          <Key>
+            <PropertyRef Name="SiteID" />
+            <PropertyRef Name="Holiday" />
+          </Key>
+          <Property Name="SiteID" Type="Int32" Nullable="false" />
+          <Property Name="Holiday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HolidayDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_ApproveRequest">
+          <Key>
+            <PropertyRef Name="LeaveStatus" />
+          </Key>
+          <Property Name="LeaveStatus" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AbbrDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IconPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_LeaveApprovers">
+          <Key>
+            <PropertyRef Name="LeaveNo" />
+            <PropertyRef Name="ApproverNo" />
+            <PropertyRef Name="AppStateNo" />
+          </Key>
+          <Property Name="LeaveNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApproverNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AppStateNo" Type="Int32" Nullable="false" />
+          <Property Name="Approved" Type="Byte" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="Reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_LeaveRecords">
+          <Key>
+            <PropertyRef Name="LeaveNo" />
+          </Key>
+          <Property Name="LeaveNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveOther" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveDtTmFrom" Type="DateTime" Precision="3" />
+          <Property Name="LeaveDtTmTo" Type="DateTime" Precision="3" />
+          <Property Name="LeaveDay" Type="Int16" />
+          <Property Name="LeaveHour" Type="Int16" />
+          <Property Name="LeaveMin" Type="Int16" />
+          <Property Name="CCReceiver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentleaveState" Type="Int32" />
+          <Property Name="LeaveStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransferDate" Type="DateTime" Precision="0" />
+          <Property Name="ProjectSiteCode" Type="Int32" />
+          <Property Name="ProjectSiteAllowance" Type="Byte" />
+          <Property Name="EPS_LeaveNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_LeaveType">
+          <Key>
+            <PropertyRef Name="LeaveType" />
+          </Key>
+          <Property Name="LeaveType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LeaveGroupCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="SpecificGender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_LimitLeaveMaster">
+          <Key>
+            <PropertyRef Name="LeaveType" />
+            <PropertyRef Name="EmployeeType" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="WorkYear" />
+          </Key>
+          <Property Name="LeaveType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeType" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="WorkYear" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LeaveDay" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DivideFirstYear" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_TimeAttendantImport">
+          <Key>
+            <PropertyRef Name="ImportID" />
+          </Key>
+          <Property Name="ImportID" Type="Int32" Nullable="false" />
+          <Property Name="UploadBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Precision="0" />
+          <Property Name="CurrentLeaveState" Type="Int32" />
+          <Property Name="LeaveStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeNo" />
+          </Key>
+          <Property Name="EmployeeNo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TitleNo" Type="Byte" />
+          <Property Name="EmployeeFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFirstNameThai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLastNameThai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeNickName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeType" Type="Byte" />
+          <Property Name="CompanyNo" Type="Int32" />
+          <Property Name="OrganizationNo" Type="Int32" />
+          <Property Name="PositionNo" Type="Int32" />
+          <Property Name="StartWorkingDate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeEMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QuitDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tblEmployeeOrganization">
+          <Key>
+            <PropertyRef Name="EmployeeNo" />
+            <PropertyRef Name="OrganizationNo" />
+            <PropertyRef Name="PositionNo" />
+          </Key>
+          <Property Name="EmployeeNo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="OrganizationNo" Type="Int32" Nullable="false" />
+          <Property Name="PositionNo" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeOrganizationRate" Type="Byte" />
+          <Property Name="IsMain" Type="Boolean" />
+          <Property Name="StartEffectiveDate" Type="DateTime" Precision="0" />
+          <Property Name="EndEffectiveDate" Type="DateTime" Precision="0" />
+          <Property Name="EmployeeOrganizationFlag" Type="Boolean" />
+          <Property Name="UpdateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="PrevEmployeeNo" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblOrganization">
+          <Key>
+            <PropertyRef Name="OrganizationNo" />
+          </Key>
+          <Property Name="OrganizationNo" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="CancelDate" Type="DateTime" Precision="0" />
+          <Property Name="OrganizationCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationFlag" Type="Int32" Nullable="false" />
+          <Property Name="UpdateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="ParentOrgNo" Type="Int32" />
+          <NavigationProperty Name="tblProjects" Relationship="Self.FK_tblProject2_tblOrganization" FromRole="tblOrganization" ToRole="tblProject" />
+        </EntityType>
+        <EntityType Name="tblPart2Master">
+          <Key>
+            <PropertyRef Name="Part2ID" />
+          </Key>
+          <Property Name="Part2ID" Type="Int32" Nullable="false" />
+          <Property Name="FunctionCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Function" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SeqNo" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblProjectMembers" Relationship="Self.FK_tblProjectMember2_tblPartItemMasterII" FromRole="tblPart2Master" ToRole="tblProjectMember" />
+        </EntityType>
+        <EntityType Name="tblPosition">
+          <Key>
+            <PropertyRef Name="PositionNo" />
+          </Key>
+          <Property Name="PositionNo" Type="Int32" Nullable="false" />
+          <Property Name="pwPosition" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="PositionAlias" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PositionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PositionStartDate" Type="DateTime" Precision="0" />
+          <Property Name="PositionCancelDate" Type="DateTime" Precision="0" />
+          <Property Name="PositionLevel" Type="Byte" />
+          <Property Name="UpdateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="VersionNo" />
+          </Key>
+          <Property Name="ProjectID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VersionNo" Type="Int16" Nullable="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectNameAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectTypeID" Type="Int32" />
+          <Property Name="ProjectGroupID" Type="Int32" />
+          <Property Name="GroupOwnerID" Type="Int32" Nullable="false" />
+          <Property Name="CSIGroupCompanyID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerCompanyID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerCompanyAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EndUserCompanyID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TransportationFee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HotelAllowance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TravelingExpense" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StatusCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ContractTypeNo" Type="Int32" />
+          <Property Name="SiteName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OnSiteWorkHr" Type="Int32" />
+          <Property Name="DefaultOnsiteWorkCalendarSeqNo" Type="Int32" />
+          <Property Name="StartDatePlan" Type="DateTime" Precision="3" />
+          <Property Name="FinishDatePlan" Type="DateTime" Precision="3" />
+          <Property Name="StartDateActual" Type="DateTime" Precision="3" />
+          <Property Name="FinishDateActual" Type="DateTime" Precision="3" />
+          <Property Name="WaranteeStartDatePlan" Type="DateTime" Precision="3" />
+          <Property Name="WaranteeFinishDatePlan" Type="DateTime" Precision="3" />
+          <Property Name="WaranteeStartDateActual" Type="DateTime" Precision="3" />
+          <Property Name="WaranteeFinishDateActual" Type="DateTime" Precision="3" />
+          <Property Name="ProjectRefDoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SMCProjectID" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CancelDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblOrganization" Relationship="Self.FK_tblProject2_tblOrganization" FromRole="tblProject" ToRole="tblOrganization" />
+        </EntityType>
+        <EntityType Name="tblProjectMember">
+          <Key>
+            <PropertyRef Name="SeqID" />
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="VersionNo" />
+            <PropertyRef Name="Part2ID" />
+          </Key>
+          <Property Name="SeqID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VersionNo" Type="Int16" Nullable="false" />
+          <Property Name="Part2ID" Type="Int32" Nullable="false" />
+          <Property Name="StaffID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StaffName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MemberTypeCode" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PositionIncharge" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PlanStartDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanFinishDate" Type="DateTime" Precision="3" />
+          <Property Name="PlanEffortRate" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="AcctualStartDate" Type="DateTime" Precision="3" />
+          <Property Name="AcctualFinishDate" Type="DateTime" Precision="3" />
+          <Property Name="AcctualEffortRate" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="TransportFee" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="OnSiteAllowance" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="SpecialistFee" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="OtherExpense" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OnSiteStart" Type="DateTime" Precision="3" />
+          <Property Name="OnSiteFinish" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsApproved" Type="Boolean" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblPart2Master" Relationship="Self.FK_tblProjectMember2_tblPartItemMasterII" FromRole="tblProjectMember" ToRole="tblPart2Master" />
+        </EntityType>
+        <EntityType Name="tbOnSiteEmployee">
+          <Key>
+            <PropertyRef Name="RunningID" />
+          </Key>
+          <Property Name="RunningID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="SiteID" Type="Int32" Nullable="false" />
+          <Property Name="StartOnSite" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="StopOnSite" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LocationOnSite" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbSiteMaster" Relationship="Self.FK_tbOnSiteEmployee_tbSiteMaster" FromRole="tbOnSiteEmployee" ToRole="tbSiteMaster" />
+        </EntityType>
+        <EntityType Name="tbSiteMaster">
+          <Key>
+            <PropertyRef Name="SiteID" />
+          </Key>
+          <Property Name="SiteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ManagerID" Type="Int32" Nullable="false" />
+          <Property Name="SiteStartTime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SiteStopTime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WorkOnSiteStart" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="WorkOnSiteStop" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Updated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="StartLunch" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="EndLunch" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbOnSiteEmployees" Relationship="Self.FK_tbOnSiteEmployee_tbSiteMaster" FromRole="tbSiteMaster" ToRole="tbOnSiteEmployee" />
+        </EntityType>
+        <EntityType Name="tbTimeAttendantUpdate">
+          <Key>
+            <PropertyRef Name="TimeAttendantID" />
+          </Key>
+          <Property Name="TimeAttendantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="SystemIN" Type="DateTime" Precision="3" />
+          <Property Name="SystemOUT" Type="DateTime" Precision="3" />
+          <Property Name="HRMIN" Type="DateTime" Precision="3" />
+          <Property Name="HRMOUT" Type="DateTime" Precision="3" />
+          <Property Name="SiteStartTime" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="SiteStopTime" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="SiteAllowance" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Complete" Type="Boolean" Nullable="false" />
+          <Property Name="ManualAllowance" Type="Int32" Nullable="false" />
+          <Property Name="SiteID" Type="Int32" Nullable="false" />
+          <Property Name="WorkOnSiteIN" Type="DateTime" Precision="3" />
+          <Property Name="WorkOnSiteOUT" Type="DateTime" Precision="3" />
+          <Property Name="WorkOnSiteStart" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="WorkOnSiteStop" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="LFMUpdated" Type="DateTime" Precision="3" />
+          <Property Name="LeaveNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TransportFeeTypeID" Type="Int16" />
+          <Property Name="NoLateFlag" Type="Byte" />
+        </EntityType>
+        <EntityType Name="tbl_TimeAttendantImportDetail">
+          <Key>
+            <PropertyRef Name="ImportID" />
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Name="ImportID" Type="Int32" Nullable="false" />
+          <Property Name="DetailID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeName" Type="Binary" MaxLength="250" FixedLength="false" />
+          <Property Name="WorkDate" Type="DateTime" Precision="3" />
+          <Property Name="WorkOnSiteStart" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="WorkOnSiteStop" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="SiteStartTime" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="SiteStopTime" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_tblProject2_tblOrganization">
+          <End Role="tblOrganization" Type="Self.tblOrganization" Multiplicity="1" />
+          <End Role="tblProject" Type="Self.tblProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOrganization">
+              <PropertyRef Name="OrganizationNo" />
+            </Principal>
+            <Dependent Role="tblProject">
+              <PropertyRef Name="GroupOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMember2_tblPartItemMasterII">
+          <End Role="tblPart2Master" Type="Self.tblPart2Master" Multiplicity="1" />
+          <End Role="tblProjectMember" Type="Self.tblProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPart2Master">
+              <PropertyRef Name="Part2ID" />
+            </Principal>
+            <Dependent Role="tblProjectMember">
+              <PropertyRef Name="Part2ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbOnSiteEmployee_tbSiteMaster">
+          <End Role="tbSiteMaster" Type="Self.tbSiteMaster" Multiplicity="1" />
+          <End Role="tbOnSiteEmployee" Type="Self.tbOnSiteEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbSiteMaster">
+              <PropertyRef Name="SiteID" />
+            </Principal>
+            <Dependent Role="tbOnSiteEmployee">
+              <PropertyRef Name="SiteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mydbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="tb_ApproveState" EntityType="Self.tb_ApproveState" />
+          <EntitySet Name="tb_ApproveType" EntityType="Self.tb_ApproveType" />
+          <EntitySet Name="tbCSIHolidays" EntityType="Self.tbCSIHoliday" />
+          <EntitySet Name="tbl_ApproveRequest" EntityType="Self.tbl_ApproveRequest" />
+          <EntitySet Name="tbl_LeaveApprovers" EntityType="Self.tbl_LeaveApprovers" />
+          <EntitySet Name="tbl_LeaveRecords" EntityType="Self.tbl_LeaveRecords" />
+          <EntitySet Name="tbl_LeaveType" EntityType="Self.tbl_LeaveType" />
+          <EntitySet Name="tbl_LimitLeaveMaster" EntityType="Self.tbl_LimitLeaveMaster" />
+          <EntitySet Name="tbl_TimeAttendantImport" EntityType="Self.tbl_TimeAttendantImport" />
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <EntitySet Name="tblEmployeeOrganizations" EntityType="Self.tblEmployeeOrganization" />
+          <EntitySet Name="tblOrganizations" EntityType="Self.tblOrganization" />
+          <EntitySet Name="tblPart2Master" EntityType="Self.tblPart2Master" />
+          <EntitySet Name="tblPositions" EntityType="Self.tblPosition" />
+          <EntitySet Name="tblProjects" EntityType="Self.tblProject" />
+          <EntitySet Name="tblProjectMembers" EntityType="Self.tblProjectMember" />
+          <EntitySet Name="tbOnSiteEmployees" EntityType="Self.tbOnSiteEmployee" />
+          <EntitySet Name="tbSiteMasters" EntityType="Self.tbSiteMaster" />
+          <EntitySet Name="tbTimeAttendantUpdates" EntityType="Self.tbTimeAttendantUpdate" />
+          <EntitySet Name="tbl_TimeAttendantImportDetail" EntityType="Self.tbl_TimeAttendantImportDetail" />
+          <AssociationSet Name="FK_tblProject2_tblOrganization" Association="Self.FK_tblProject2_tblOrganization">
+            <End Role="tblOrganization" EntitySet="tblOrganizations" />
+            <End Role="tblProject" EntitySet="tblProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMember2_tblPartItemMasterII" Association="Self.FK_tblProjectMember2_tblPartItemMasterII">
+            <End Role="tblPart2Master" EntitySet="tblPart2Master" />
+            <End Role="tblProjectMember" EntitySet="tblProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbOnSiteEmployee_tbSiteMaster" Association="Self.FK_tbOnSiteEmployee_tbSiteMaster">
+            <End Role="tbSiteMaster" EntitySet="tbSiteMasters" />
+            <End Role="tbOnSiteEmployee" EntitySet="tbOnSiteEmployees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mydbModelStoreContainer" CdmEntityContainer="mydbEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="mydbModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ApproveState">
+            <EntityTypeMapping TypeName="mydbModel.tb_ApproveState">
+              <MappingFragment StoreEntitySet="tb_ApproveState">
+                <ScalarProperty Name="AppStateNo" ColumnName="AppStateNo" />
+                <ScalarProperty Name="AppStateCode" ColumnName="AppStateCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AppStateOrder" ColumnName="AppStateOrder" />
+                <ScalarProperty Name="RequestFlag" ColumnName="RequestFlag" />
+                <ScalarProperty Name="AppFormatNo" ColumnName="AppFormatNo" />
+                <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
+                <ScalarProperty Name="IsObsoleted" ColumnName="IsObsoleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ApproveType">
+            <EntityTypeMapping TypeName="mydbModel.tb_ApproveType">
+              <MappingFragment StoreEntitySet="tb_ApproveType">
+                <ScalarProperty Name="AppTypeNo" ColumnName="AppTypeNo" />
+                <ScalarProperty Name="AppTypeCode" ColumnName="AppTypeCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCSIHolidays">
+            <EntityTypeMapping TypeName="mydbModel.tbCSIHoliday">
+              <MappingFragment StoreEntitySet="tbCSIHoliday">
+                <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+                <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+                <ScalarProperty Name="HolidayDescription" ColumnName="HolidayDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ApproveRequest">
+            <EntityTypeMapping TypeName="mydbModel.tbl_ApproveRequest">
+              <MappingFragment StoreEntitySet="tbl_ApproveRequest">
+                <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AbbrDesc" ColumnName="AbbrDesc" />
+                <ScalarProperty Name="IconPath" ColumnName="IconPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LeaveApprovers">
+            <EntityTypeMapping TypeName="mydbModel.tbl_LeaveApprovers">
+              <MappingFragment StoreEntitySet="tbl_LeaveApprovers">
+                <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+                <ScalarProperty Name="ApproverNo" ColumnName="ApproverNo" />
+                <ScalarProperty Name="AppStateNo" ColumnName="AppStateNo" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LeaveRecords">
+            <EntityTypeMapping TypeName="mydbModel.tbl_LeaveRecords">
+              <MappingFragment StoreEntitySet="tbl_LeaveRecords">
+                <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+                <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+                <ScalarProperty Name="LeaveOther" ColumnName="LeaveOther" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="LeaveDtTmFrom" ColumnName="LeaveDtTmFrom" />
+                <ScalarProperty Name="LeaveDtTmTo" ColumnName="LeaveDtTmTo" />
+                <ScalarProperty Name="LeaveDay" ColumnName="LeaveDay" />
+                <ScalarProperty Name="LeaveHour" ColumnName="LeaveHour" />
+                <ScalarProperty Name="LeaveMin" ColumnName="LeaveMin" />
+                <ScalarProperty Name="CCReceiver" ColumnName="CCReceiver" />
+                <ScalarProperty Name="CurrentleaveState" ColumnName="CurrentleaveState" />
+                <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
+                <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+                <ScalarProperty Name="ProjectSiteCode" ColumnName="ProjectSiteCode" />
+                <ScalarProperty Name="ProjectSiteAllowance" ColumnName="ProjectSiteAllowance" />
+                <ScalarProperty Name="EPS_LeaveNo" ColumnName="EPS_LeaveNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LeaveType">
+            <EntityTypeMapping TypeName="mydbModel.tbl_LeaveType">
+              <MappingFragment StoreEntitySet="tbl_LeaveType">
+                <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LeaveGroupCode" ColumnName="LeaveGroupCode" />
+                <ScalarProperty Name="SpecificGender" ColumnName="SpecificGender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LimitLeaveMaster">
+            <EntityTypeMapping TypeName="mydbModel.tbl_LimitLeaveMaster">
+              <MappingFragment StoreEntitySet="tbl_LimitLeaveMaster">
+                <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="WorkYear" ColumnName="WorkYear" />
+                <ScalarProperty Name="LeaveDay" ColumnName="LeaveDay" />
+                <ScalarProperty Name="DivideFirstYear" ColumnName="DivideFirstYear" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TimeAttendantImport">
+            <EntityTypeMapping TypeName="mydbModel.tbl_TimeAttendantImport">
+              <MappingFragment StoreEntitySet="tbl_TimeAttendantImport">
+                <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="CurrentLeaveState" ColumnName="CurrentLeaveState" />
+                <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="mydbModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+                <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+                <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+                <ScalarProperty Name="EmployeeFirstNameThai" ColumnName="EmployeeFirstNameThai" />
+                <ScalarProperty Name="EmployeeLastNameThai" ColumnName="EmployeeLastNameThai" />
+                <ScalarProperty Name="EmployeeNickName" ColumnName="EmployeeNickName" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="CompanyNo" ColumnName="CompanyNo" />
+                <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+                <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+                <ScalarProperty Name="StartWorkingDate" ColumnName="StartWorkingDate" />
+                <ScalarProperty Name="EmployeeEMail" ColumnName="EmployeeEMail" />
+                <ScalarProperty Name="QuitDate" ColumnName="QuitDate" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployeeOrganizations">
+            <EntityTypeMapping TypeName="mydbModel.tblEmployeeOrganization">
+              <MappingFragment StoreEntitySet="tblEmployeeOrganization">
+                <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+                <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+                <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+                <ScalarProperty Name="EmployeeOrganizationRate" ColumnName="EmployeeOrganizationRate" />
+                <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+                <ScalarProperty Name="StartEffectiveDate" ColumnName="StartEffectiveDate" />
+                <ScalarProperty Name="EndEffectiveDate" ColumnName="EndEffectiveDate" />
+                <ScalarProperty Name="EmployeeOrganizationFlag" ColumnName="EmployeeOrganizationFlag" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="PrevEmployeeNo" ColumnName="PrevEmployeeNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrganizations">
+            <EntityTypeMapping TypeName="mydbModel.tblOrganization">
+              <MappingFragment StoreEntitySet="tblOrganization">
+                <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+                <ScalarProperty Name="OrganizationAlias" ColumnName="OrganizationAlias" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="OrganizationCode" ColumnName="OrganizationCode" />
+                <ScalarProperty Name="OrganizationFlag" ColumnName="OrganizationFlag" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="ParentOrgNo" ColumnName="ParentOrgNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPart2Master">
+            <EntityTypeMapping TypeName="mydbModel.tblPart2Master">
+              <MappingFragment StoreEntitySet="tblPart2Master">
+                <ScalarProperty Name="Part2ID" ColumnName="Part2ID" />
+                <ScalarProperty Name="FunctionCode" ColumnName="FunctionCode" />
+                <ScalarProperty Name="Function" ColumnName="Function" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPositions">
+            <EntityTypeMapping TypeName="mydbModel.tblPosition">
+              <MappingFragment StoreEntitySet="tblPosition">
+                <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+                <ScalarProperty Name="pwPosition" ColumnName="pwPosition" />
+                <ScalarProperty Name="PositionAlias" ColumnName="PositionAlias" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="PositionStartDate" ColumnName="PositionStartDate" />
+                <ScalarProperty Name="PositionCancelDate" ColumnName="PositionCancelDate" />
+                <ScalarProperty Name="PositionLevel" ColumnName="PositionLevel" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjects">
+            <EntityTypeMapping TypeName="mydbModel.tblProject">
+              <MappingFragment StoreEntitySet="tblProject">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectNameAlias" ColumnName="ProjectNameAlias" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="ProjectTypeID" ColumnName="ProjectTypeID" />
+                <ScalarProperty Name="ProjectGroupID" ColumnName="ProjectGroupID" />
+                <ScalarProperty Name="GroupOwnerID" ColumnName="GroupOwnerID" />
+                <ScalarProperty Name="CSIGroupCompanyID" ColumnName="CSIGroupCompanyID" />
+                <ScalarProperty Name="CustomerCompanyID" ColumnName="CustomerCompanyID" />
+                <ScalarProperty Name="CustomerCompanyAlias" ColumnName="CustomerCompanyAlias" />
+                <ScalarProperty Name="EndUserCompanyID" ColumnName="EndUserCompanyID" />
+                <ScalarProperty Name="TransportationFee" ColumnName="TransportationFee" />
+                <ScalarProperty Name="HotelAllowance" ColumnName="HotelAllowance" />
+                <ScalarProperty Name="TravelingExpense" ColumnName="TravelingExpense" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ContractTypeNo" ColumnName="ContractTypeNo" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="OnSiteWorkHr" ColumnName="OnSiteWorkHr" />
+                <ScalarProperty Name="DefaultOnsiteWorkCalendarSeqNo" ColumnName="DefaultOnsiteWorkCalendarSeqNo" />
+                <ScalarProperty Name="StartDatePlan" ColumnName="StartDatePlan" />
+                <ScalarProperty Name="FinishDatePlan" ColumnName="FinishDatePlan" />
+                <ScalarProperty Name="StartDateActual" ColumnName="StartDateActual" />
+                <ScalarProperty Name="FinishDateActual" ColumnName="FinishDateActual" />
+                <ScalarProperty Name="WaranteeStartDatePlan" ColumnName="WaranteeStartDatePlan" />
+                <ScalarProperty Name="WaranteeFinishDatePlan" ColumnName="WaranteeFinishDatePlan" />
+                <ScalarProperty Name="WaranteeStartDateActual" ColumnName="WaranteeStartDateActual" />
+                <ScalarProperty Name="WaranteeFinishDateActual" ColumnName="WaranteeFinishDateActual" />
+                <ScalarProperty Name="ProjectRefDoc" ColumnName="ProjectRefDoc" />
+                <ScalarProperty Name="SMCProjectID" ColumnName="SMCProjectID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectMembers">
+            <EntityTypeMapping TypeName="mydbModel.tblProjectMember">
+              <MappingFragment StoreEntitySet="tblProjectMember">
+                <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+                <ScalarProperty Name="Part2ID" ColumnName="Part2ID" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="MemberTypeCode" ColumnName="MemberTypeCode" />
+                <ScalarProperty Name="PositionIncharge" ColumnName="PositionIncharge" />
+                <ScalarProperty Name="PlanStartDate" ColumnName="PlanStartDate" />
+                <ScalarProperty Name="PlanFinishDate" ColumnName="PlanFinishDate" />
+                <ScalarProperty Name="PlanEffortRate" ColumnName="PlanEffortRate" />
+                <ScalarProperty Name="AcctualStartDate" ColumnName="AcctualStartDate" />
+                <ScalarProperty Name="AcctualFinishDate" ColumnName="AcctualFinishDate" />
+                <ScalarProperty Name="AcctualEffortRate" ColumnName="AcctualEffortRate" />
+                <ScalarProperty Name="TransportFee" ColumnName="TransportFee" />
+                <ScalarProperty Name="OnSiteAllowance" ColumnName="OnSiteAllowance" />
+                <ScalarProperty Name="SpecialistFee" ColumnName="SpecialistFee" />
+                <ScalarProperty Name="OtherExpense" ColumnName="OtherExpense" />
+                <ScalarProperty Name="OnSiteStart" ColumnName="OnSiteStart" />
+                <ScalarProperty Name="OnSiteFinish" ColumnName="OnSiteFinish" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbOnSiteEmployees">
+            <EntityTypeMapping TypeName="mydbModel.tbOnSiteEmployee">
+              <MappingFragment StoreEntitySet="tbOnSiteEmployee">
+                <ScalarProperty Name="RunningID" ColumnName="RunningID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+                <ScalarProperty Name="StartOnSite" ColumnName="StartOnSite" />
+                <ScalarProperty Name="StopOnSite" ColumnName="StopOnSite" />
+                <ScalarProperty Name="LocationOnSite" ColumnName="LocationOnSite" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbSiteMasters">
+            <EntityTypeMapping TypeName="mydbModel.tbSiteMaster">
+              <MappingFragment StoreEntitySet="tbSiteMaster">
+                <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="SiteStartTime" ColumnName="SiteStartTime" />
+                <ScalarProperty Name="SiteStopTime" ColumnName="SiteStopTime" />
+                <ScalarProperty Name="WorkOnSiteStart" ColumnName="WorkOnSiteStart" />
+                <ScalarProperty Name="WorkOnSiteStop" ColumnName="WorkOnSiteStop" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="StartLunch" ColumnName="StartLunch" />
+                <ScalarProperty Name="EndLunch" ColumnName="EndLunch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTimeAttendantUpdates">
+            <EntityTypeMapping TypeName="mydbModel.tbTimeAttendantUpdate">
+              <MappingFragment StoreEntitySet="tbTimeAttendantUpdate">
+                <ScalarProperty Name="TimeAttendantID" ColumnName="TimeAttendantID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="SystemIN" ColumnName="SystemIN" />
+                <ScalarProperty Name="SystemOUT" ColumnName="SystemOUT" />
+                <ScalarProperty Name="HRMIN" ColumnName="HRMIN" />
+                <ScalarProperty Name="HRMOUT" ColumnName="HRMOUT" />
+                <ScalarProperty Name="SiteStartTime" ColumnName="SiteStartTime" />
+                <ScalarProperty Name="SiteStopTime" ColumnName="SiteStopTime" />
+                <ScalarProperty Name="SiteAllowance" ColumnName="SiteAllowance" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+                <ScalarProperty Name="ManualAllowance" ColumnName="ManualAllowance" />
+                <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+                <ScalarProperty Name="WorkOnSiteIN" ColumnName="WorkOnSiteIN" />
+                <ScalarProperty Name="WorkOnSiteOUT" ColumnName="WorkOnSiteOUT" />
+                <ScalarProperty Name="WorkOnSiteStart" ColumnName="WorkOnSiteStart" />
+                <ScalarProperty Name="WorkOnSiteStop" ColumnName="WorkOnSiteStop" />
+                <ScalarProperty Name="LFMUpdated" ColumnName="LFMUpdated" />
+                <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+                <ScalarProperty Name="TransportFeeTypeID" ColumnName="TransportFeeTypeID" />
+                <ScalarProperty Name="NoLateFlag" ColumnName="NoLateFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TimeAttendantImportDetail">
+            <EntityTypeMapping TypeName="mydbModel.tbl_TimeAttendantImportDetail">
+              <MappingFragment StoreEntitySet="tbl_TimeAttendantImportDetail">
+                <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="WorkOnSiteStart" ColumnName="WorkOnSiteStart" />
+                <ScalarProperty Name="WorkOnSiteStop" ColumnName="WorkOnSiteStop" />
+                <ScalarProperty Name="SiteStartTime" ColumnName="SiteStartTime" />
+                <ScalarProperty Name="SiteStopTime" ColumnName="SiteStopTime" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mydbModelStoreContainer" CdmEntityContainer="mydbEntities">
+    <EntitySetMapping Name="C__EFMigrationsHistory">
+      <EntityTypeMapping TypeName="mydbModel.C__EFMigrationsHistory">
+        <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ApproveState">
+      <EntityTypeMapping TypeName="mydbModel.tb_ApproveState">
+        <MappingFragment StoreEntitySet="tb_ApproveState">
+          <ScalarProperty Name="AppStateNo" ColumnName="AppStateNo" />
+          <ScalarProperty Name="AppStateCode" ColumnName="AppStateCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AppStateOrder" ColumnName="AppStateOrder" />
+          <ScalarProperty Name="RequestFlag" ColumnName="RequestFlag" />
+          <ScalarProperty Name="AppFormatNo" ColumnName="AppFormatNo" />
+          <ScalarProperty Name="ModuleNo" ColumnName="ModuleNo" />
+          <ScalarProperty Name="IsObsoleted" ColumnName="IsObsoleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ApproveType">
+      <EntityTypeMapping TypeName="mydbModel.tb_ApproveType">
+        <MappingFragment StoreEntitySet="tb_ApproveType">
+          <ScalarProperty Name="AppTypeNo" ColumnName="AppTypeNo" />
+          <ScalarProperty Name="AppTypeCode" ColumnName="AppTypeCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCSIHolidays">
+      <EntityTypeMapping TypeName="mydbModel.tbCSIHoliday">
+        <MappingFragment StoreEntitySet="tbCSIHoliday">
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+          <ScalarProperty Name="HolidayDescription" ColumnName="HolidayDescription" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ApproveRequest">
+      <EntityTypeMapping TypeName="mydbModel.tbl_ApproveRequest">
+        <MappingFragment StoreEntitySet="tbl_ApproveRequest">
+          <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AbbrDesc" ColumnName="AbbrDesc" />
+          <ScalarProperty Name="IconPath" ColumnName="IconPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeaveApprovers">
+      <EntityTypeMapping TypeName="mydbModel.tbl_LeaveApprovers">
+        <MappingFragment StoreEntitySet="tbl_LeaveApprovers">
+          <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+          <ScalarProperty Name="ApproverNo" ColumnName="ApproverNo" />
+          <ScalarProperty Name="AppStateNo" ColumnName="AppStateNo" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeaveRecords">
+      <EntityTypeMapping TypeName="mydbModel.tbl_LeaveRecords">
+        <MappingFragment StoreEntitySet="tbl_LeaveRecords">
+          <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+          <ScalarProperty Name="LeaveOther" ColumnName="LeaveOther" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="LeaveDtTmFrom" ColumnName="LeaveDtTmFrom" />
+          <ScalarProperty Name="LeaveDtTmTo" ColumnName="LeaveDtTmTo" />
+          <ScalarProperty Name="LeaveDay" ColumnName="LeaveDay" />
+          <ScalarProperty Name="LeaveHour" ColumnName="LeaveHour" />
+          <ScalarProperty Name="LeaveMin" ColumnName="LeaveMin" />
+          <ScalarProperty Name="CCReceiver" ColumnName="CCReceiver" />
+          <ScalarProperty Name="CurrentleaveState" ColumnName="CurrentleaveState" />
+          <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
+          <ScalarProperty Name="TransferDate" ColumnName="TransferDate" />
+          <ScalarProperty Name="ProjectSiteCode" ColumnName="ProjectSiteCode" />
+          <ScalarProperty Name="ProjectSiteAllowance" ColumnName="ProjectSiteAllowance" />
+          <ScalarProperty Name="EPS_LeaveNo" ColumnName="EPS_LeaveNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeaveType">
+      <EntityTypeMapping TypeName="mydbModel.tbl_LeaveType">
+        <MappingFragment StoreEntitySet="tbl_LeaveType">
+          <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LeaveGroupCode" ColumnName="LeaveGroupCode" />
+          <ScalarProperty Name="SpecificGender" ColumnName="SpecificGender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LimitLeaveMaster">
+      <EntityTypeMapping TypeName="mydbModel.tbl_LimitLeaveMaster">
+        <MappingFragment StoreEntitySet="tbl_LimitLeaveMaster">
+          <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="WorkYear" ColumnName="WorkYear" />
+          <ScalarProperty Name="LeaveDay" ColumnName="LeaveDay" />
+          <ScalarProperty Name="DivideFirstYear" ColumnName="DivideFirstYear" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TimeAttendantImport">
+      <EntityTypeMapping TypeName="mydbModel.tbl_TimeAttendantImport">
+        <MappingFragment StoreEntitySet="tbl_TimeAttendantImport">
+          <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+          <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+          <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+          <ScalarProperty Name="CurrentLeaveState" ColumnName="CurrentLeaveState" />
+          <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="mydbModel.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="TitleNo" ColumnName="TitleNo" />
+          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+          <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+          <ScalarProperty Name="EmployeeFirstNameThai" ColumnName="EmployeeFirstNameThai" />
+          <ScalarProperty Name="EmployeeLastNameThai" ColumnName="EmployeeLastNameThai" />
+          <ScalarProperty Name="EmployeeNickName" ColumnName="EmployeeNickName" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+          <ScalarProperty Name="CompanyNo" ColumnName="CompanyNo" />
+          <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+          <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+          <ScalarProperty Name="StartWorkingDate" ColumnName="StartWorkingDate" />
+          <ScalarProperty Name="EmployeeEMail" ColumnName="EmployeeEMail" />
+          <ScalarProperty Name="QuitDate" ColumnName="QuitDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployeeOrganizations">
+      <EntityTypeMapping TypeName="mydbModel.tblEmployeeOrganization">
+        <MappingFragment StoreEntitySet="tblEmployeeOrganization">
+          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+          <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+          <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+          <ScalarProperty Name="EmployeeOrganizationRate" ColumnName="EmployeeOrganizationRate" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="StartEffectiveDate" ColumnName="StartEffectiveDate" />
+          <ScalarProperty Name="EndEffectiveDate" ColumnName="EndEffectiveDate" />
+          <ScalarProperty Name="EmployeeOrganizationFlag" ColumnName="EmployeeOrganizationFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="PrevEmployeeNo" ColumnName="PrevEmployeeNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrganizations">
+      <EntityTypeMapping TypeName="mydbModel.tblOrganization">
+        <MappingFragment StoreEntitySet="tblOrganization">
+          <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+          <ScalarProperty Name="OrganizationAlias" ColumnName="OrganizationAlias" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+          <ScalarProperty Name="OrganizationCode" ColumnName="OrganizationCode" />
+          <ScalarProperty Name="OrganizationFlag" ColumnName="OrganizationFlag" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="ParentOrgNo" ColumnName="ParentOrgNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPart2Master">
+      <EntityTypeMapping TypeName="mydbModel.tblPart2Master">
+        <MappingFragment StoreEntitySet="tblPart2Master">
+          <ScalarProperty Name="Part2ID" ColumnName="Part2ID" />
+          <ScalarProperty Name="FunctionCode" ColumnName="FunctionCode" />
+          <ScalarProperty Name="Function" ColumnName="Function" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPositions">
+      <EntityTypeMapping TypeName="mydbModel.tblPosition">
+        <MappingFragment StoreEntitySet="tblPosition">
+          <ScalarProperty Name="PositionNo" ColumnName="PositionNo" />
+          <ScalarProperty Name="pwPosition" ColumnName="pwPosition" />
+          <ScalarProperty Name="PositionAlias" ColumnName="PositionAlias" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="PositionStartDate" ColumnName="PositionStartDate" />
+          <ScalarProperty Name="PositionCancelDate" ColumnName="PositionCancelDate" />
+          <ScalarProperty Name="PositionLevel" ColumnName="PositionLevel" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjects">
+      <EntityTypeMapping TypeName="mydbModel.tblProject">
+        <MappingFragment StoreEntitySet="tblProject">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectNameAlias" ColumnName="ProjectNameAlias" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectTypeID" ColumnName="ProjectTypeID" />
+          <ScalarProperty Name="ProjectGroupID" ColumnName="ProjectGroupID" />
+          <ScalarProperty Name="GroupOwnerID" ColumnName="GroupOwnerID" />
+          <ScalarProperty Name="CSIGroupCompanyID" ColumnName="CSIGroupCompanyID" />
+          <ScalarProperty Name="CustomerCompanyID" ColumnName="CustomerCompanyID" />
+          <ScalarProperty Name="CustomerCompanyAlias" ColumnName="CustomerCompanyAlias" />
+          <ScalarProperty Name="EndUserCompanyID" ColumnName="EndUserCompanyID" />
+          <ScalarProperty Name="TransportationFee" ColumnName="TransportationFee" />
+          <ScalarProperty Name="HotelAllowance" ColumnName="HotelAllowance" />
+          <ScalarProperty Name="TravelingExpense" ColumnName="TravelingExpense" />
+          <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ContractTypeNo" ColumnName="ContractTypeNo" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="OnSiteWorkHr" ColumnName="OnSiteWorkHr" />
+          <ScalarProperty Name="DefaultOnsiteWorkCalendarSeqNo" ColumnName="DefaultOnsiteWorkCalendarSeqNo" />
+          <ScalarProperty Name="StartDatePlan" ColumnName="StartDatePlan" />
+          <ScalarProperty Name="FinishDatePlan" ColumnName="FinishDatePlan" />
+          <ScalarProperty Name="StartDateActual" ColumnName="StartDateActual" />
+          <ScalarProperty Name="FinishDateActual" ColumnName="FinishDateActual" />
+          <ScalarProperty Name="WaranteeStartDatePlan" ColumnName="WaranteeStartDatePlan" />
+          <ScalarProperty Name="WaranteeFinishDatePlan" ColumnName="WaranteeFinishDatePlan" />
+          <ScalarProperty Name="WaranteeStartDateActual" ColumnName="WaranteeStartDateActual" />
+          <ScalarProperty Name="WaranteeFinishDateActual" ColumnName="WaranteeFinishDateActual" />
+          <ScalarProperty Name="ProjectRefDoc" ColumnName="ProjectRefDoc" />
+          <ScalarProperty Name="SMCProjectID" ColumnName="SMCProjectID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectMembers">
+      <EntityTypeMapping TypeName="mydbModel.tblProjectMember">
+        <MappingFragment StoreEntitySet="tblProjectMember">
+          <ScalarProperty Name="SeqID" ColumnName="SeqID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+          <ScalarProperty Name="Part2ID" ColumnName="Part2ID" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+          <ScalarProperty Name="MemberTypeCode" ColumnName="MemberTypeCode" />
+          <ScalarProperty Name="PositionIncharge" ColumnName="PositionIncharge" />
+          <ScalarProperty Name="PlanStartDate" ColumnName="PlanStartDate" />
+          <ScalarProperty Name="PlanFinishDate" ColumnName="PlanFinishDate" />
+          <ScalarProperty Name="PlanEffortRate" ColumnName="PlanEffortRate" />
+          <ScalarProperty Name="AcctualStartDate" ColumnName="AcctualStartDate" />
+          <ScalarProperty Name="AcctualFinishDate" ColumnName="AcctualFinishDate" />
+          <ScalarProperty Name="AcctualEffortRate" ColumnName="AcctualEffortRate" />
+          <ScalarProperty Name="TransportFee" ColumnName="TransportFee" />
+          <ScalarProperty Name="OnSiteAllowance" ColumnName="OnSiteAllowance" />
+          <ScalarProperty Name="SpecialistFee" ColumnName="SpecialistFee" />
+          <ScalarProperty Name="OtherExpense" ColumnName="OtherExpense" />
+          <ScalarProperty Name="OnSiteStart" ColumnName="OnSiteStart" />
+          <ScalarProperty Name="OnSiteFinish" ColumnName="OnSiteFinish" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbOnSiteEmployees">
+      <EntityTypeMapping TypeName="mydbModel.tbOnSiteEmployee">
+        <MappingFragment StoreEntitySet="tbOnSiteEmployee">
+          <ScalarProperty Name="RunningID" ColumnName="RunningID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="StartOnSite" ColumnName="StartOnSite" />
+          <ScalarProperty Name="StopOnSite" ColumnName="StopOnSite" />
+          <ScalarProperty Name="LocationOnSite" ColumnName="LocationOnSite" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbSiteMasters">
+      <EntityTypeMapping TypeName="mydbModel.tbSiteMaster">
+        <MappingFragment StoreEntitySet="tbSiteMaster">
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="SiteStartTime" ColumnName="SiteStartTime" />
+          <ScalarProperty Name="SiteStopTime" ColumnName="SiteStopTime" />
+          <ScalarProperty Name="WorkOnSiteStart" ColumnName="WorkOnSiteStart" />
+          <ScalarProperty Name="WorkOnSiteStop" ColumnName="WorkOnSiteStop" />
+          <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="StartLunch" ColumnName="StartLunch" />
+          <ScalarProperty Name="EndLunch" ColumnName="EndLunch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTimeAttendantUpdates">
+      <EntityTypeMapping TypeName="mydbModel.tbTimeAttendantUpdate">
+        <MappingFragment StoreEntitySet="tbTimeAttendantUpdate">
+          <ScalarProperty Name="TimeAttendantID" ColumnName="TimeAttendantID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="SystemIN" ColumnName="SystemIN" />
+          <ScalarProperty Name="SystemOUT" ColumnName="SystemOUT" />
+          <ScalarProperty Name="HRMIN" ColumnName="HRMIN" />
+          <ScalarProperty Name="HRMOUT" ColumnName="HRMOUT" />
+          <ScalarProperty Name="SiteStartTime" ColumnName="SiteStartTime" />
+          <ScalarProperty Name="SiteStopTime" ColumnName="SiteStopTime" />
+          <ScalarProperty Name="SiteAllowance" ColumnName="SiteAllowance" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Complete" ColumnName="Complete" />
+          <ScalarProperty Name="ManualAllowance" ColumnName="ManualAllowance" />
+          <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+          <ScalarProperty Name="WorkOnSiteIN" ColumnName="WorkOnSiteIN" />
+          <ScalarProperty Name="WorkOnSiteOUT" ColumnName="WorkOnSiteOUT" />
+          <ScalarProperty Name="WorkOnSiteStart" ColumnName="WorkOnSiteStart" />
+          <ScalarProperty Name="WorkOnSiteStop" ColumnName="WorkOnSiteStop" />
+          <ScalarProperty Name="LFMUpdated" ColumnName="LFMUpdated" />
+          <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+          <ScalarProperty Name="TransportFeeTypeID" ColumnName="TransportFeeTypeID" />
+          <ScalarProperty Name="NoLateFlag" ColumnName="NoLateFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TimeAttendantImportDetail">
+      <EntityTypeMapping TypeName="mydbModel.tbl_TimeAttendantImportDetail">
+        <MappingFragment StoreEntitySet="tbl_TimeAttendantImportDetail">
+          <ScalarProperty Name="ImportID" ColumnName="ImportID" />
+          <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+          <ScalarProperty Name="WorkOnSiteStart" ColumnName="WorkOnSiteStart" />
+          <ScalarProperty Name="WorkOnSiteStop" ColumnName="WorkOnSiteStop" />
+          <ScalarProperty Name="SiteStartTime" ColumnName="SiteStartTime" />
+          <ScalarProperty Name="SiteStopTime" ColumnName="SiteStopTime" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

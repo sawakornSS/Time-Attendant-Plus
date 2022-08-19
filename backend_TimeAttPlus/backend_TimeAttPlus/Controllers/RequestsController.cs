@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend_TimeAttPlus.Data;
 using backend_TimeAttPlus.Models;
+using TimeAttPlus.Business;
 
 namespace backend_TimeAttPlus.Controllers
 {
@@ -27,7 +28,8 @@ namespace backend_TimeAttPlus.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllLeaveRecord()
         {
-          var request =  await _requestDbcontext.tbl_LeaveRecords.ToListAsync();
+   
+         var request =  await _requestDbcontext.tbl_LeaveRecords.ToListAsync();
           return Ok(request);
         }
 

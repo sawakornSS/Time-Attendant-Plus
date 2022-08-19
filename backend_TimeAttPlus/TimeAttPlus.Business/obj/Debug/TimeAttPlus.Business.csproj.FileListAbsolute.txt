@@ -1,0 +1,10 @@
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\bin\Debug\TimeAttPlus.Business.dll.config
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\bin\Debug\TimeAttPlus.Business.dll
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\bin\Debug\TimeAttPlus.Business.pdb
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\bin\Debug\EntityFramework.dll
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\bin\Debug\EntityFramework.xml
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\obj\Debug\TimeAttPlus.Business.csproj.AssemblyReference.cache
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\obj\Debug\TimeAttPlus.Business.csproj.CoreCompileInputs.cache
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\obj\Debug\TimeAttPlus.Business.csproj.CopyComplete
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\obj\Debug\TimeAttPlus.Business.dll
+D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\TimeAttPlus.Business\obj\Debug\TimeAttPlus.Business.pdb
