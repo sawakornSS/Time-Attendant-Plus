@@ -35,8 +35,8 @@ namespace backend_TimeAttPlus
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend_TimeAttPlus", Version = "v1" });
             });
             services.AddRazorPages();
-            services.AddDbContext<RequestDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<RequestDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
