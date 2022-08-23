@@ -35,8 +35,9 @@ namespace backend_TimeAttPlus
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend_TimeAttPlus", Version = "v1" });
             });
             services.AddRazorPages();
-            //services.AddDbContext<RequestDbContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<RequestDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,13 +51,14 @@ namespace backend_TimeAttPlus
             }
 
             app.UseHttpsRedirection();
+            app.UseDeveloperExceptionPage();
 
-            app.UseRouting();
+      app.UseRouting();
                 
             app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+      
+      app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });

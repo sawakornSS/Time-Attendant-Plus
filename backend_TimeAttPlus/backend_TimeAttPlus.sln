@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "backend_TimeAttPlus", "backend_TimeAttPlus\backend_TimeAttPlus.csproj", "{4C11EDA0-B809-4ED4-964B-10D621A786CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeAttPlus.Business", "TimeAttPlus.Business\TimeAttPlus.Business.csproj", "{B038D771-C3C6-4A12-822E-0D4164556D9E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{4C11EDA0-B809-4ED4-964B-10D621A786CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C11EDA0-B809-4ED4-964B-10D621A786CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C11EDA0-B809-4ED4-964B-10D621A786CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B038D771-C3C6-4A12-822E-0D4164556D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B038D771-C3C6-4A12-822E-0D4164556D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B038D771-C3C6-4A12-822E-0D4164556D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B038D771-C3C6-4A12-822E-0D4164556D9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

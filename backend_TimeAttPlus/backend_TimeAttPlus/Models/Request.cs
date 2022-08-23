@@ -8,16 +8,15 @@ namespace backend_TimeAttPlus.Models
     public class Request
     {
     [Key]
-    public string LeaveNo { get; set; } 
-        public string LeaveType { get; set; }
-        public string EmployeeNo { get; set; } = "890343";
+    public string LeaveNo { get; set; } = "";
+    public string LeaveType { get; set; }
+    public string EmployeeNo { get; set; } = "890343";
 
-        public DateTime? CreateDate { get; set; } = DateTime.Now;
-        public string Reason { get; set; }
-        public DateTime? LeaveDtTmFrom { get; set; }
+    public string Reason { get; set; }
+    public DateTime? LeaveDtTmFrom { get; set; }
         
-        public DateTime? LeaveDtTmTo { get; set; }
-        public string LeaveStatus { get; set; }
+    public DateTime? LeaveDtTmTo { get; set; }
+    public string LeaveStatus { get; set; }
     }
     public class TypeLeave
     {

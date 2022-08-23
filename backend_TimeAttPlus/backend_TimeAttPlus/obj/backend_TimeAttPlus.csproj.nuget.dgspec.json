@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj": {}
+    "C:\\Users\\pongthorn_j\\Documents\\GitHub\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj": {}
   },
   "projects": {
-    "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj": {
+    "C:\\Users\\pongthorn_j\\Documents\\GitHub\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj",
+        "projectUniqueName": "C:\\Users\\pongthorn_j\\Documents\\GitHub\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj",
         "projectName": "backend_TimeAttPlus",
-        "projectPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj",
-        "packagesPath": "C:\\Users\\sawakorn\\.nuget\\packages\\",
-        "outputPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\obj\\",
+        "projectPath": "C:\\Users\\pongthorn_j\\Documents\\GitHub\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\backend_TimeAttPlus.csproj",
+        "packagesPath": "C:\\Users\\pongthorn_j\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pongthorn_j\\Documents\\GitHub\\Time-Attendant-Plus\\backend_TimeAttPlus\\backend_TimeAttPlus\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sawakorn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pongthorn_j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,11 +31,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj": {
-                "projectPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -77,12 +77,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.16, 5.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,21 +87,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj": {
-      "restore": {
-        "projectUniqueName": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj",
-        "projectName": "TimeAttPlus.Business",
-        "projectPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj",
-        "frameworks": {
-          "net472": {
-            "projectReferences": {}
-          }
-        }
-      },
-      "frameworks": {
-        "net472": {}
       }
     }
   }
