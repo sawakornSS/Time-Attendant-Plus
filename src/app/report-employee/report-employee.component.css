@@ -1,0 +1,13 @@
+.leftbar{
+    border-left: 10px solid #FABB18!important;
+    padding: 0 16px;
+}
+.text-title{
+    color: black;
+    font-size: 30px;
+    /* font-weight: bold; */
+    margin-bottom: 5px;
+}
+.content-wrapper {
+    background-color: white;
+}
