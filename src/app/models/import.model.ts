@@ -8,13 +8,13 @@ export interface ImportTime{
     
 }
 export interface ImportTimeDetail{
-    DetailID : BigInt;
-    ImportID : BigInt;
-    EmployeeName : String;
-    WorkDate : String;
-    WorkOnSiteStart : String;
-    WorkOnSiteStop : String;
-    SiteStartTime : String;
-    SiteStopTime : String;
-    ProjectName : String;
+    detailID : BigInt;
+    importID : BigInt;
+    employeeName : String;
+    workDate : String;
+    workOnSiteStart : String;
+    workOnSiteStop : String;
+    siteStartTime : String;
+    siteStopTime : String;
+    projectName : String;
 }
