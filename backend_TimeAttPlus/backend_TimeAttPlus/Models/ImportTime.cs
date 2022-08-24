@@ -2,16 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 
+
+
 namespace backend_TimeAttPlus.Models
 {
   public class ImportTime
   {
     [Key]
-    public int ImportID { get; set; } 
+    public int ImportID { get; set; }
     public string UploadBy { get; set; } = "890343";
     public DateTime? UploadDate { get; set; } = DateTime.Now;
     public int CurrentLeaveState { get; set; }
     public string LeaveStatus { get; set; }
+
+
 
   }
   public class ImportTimeDetail
@@ -31,6 +35,7 @@ namespace backend_TimeAttPlus.Models
     public string ProjectName { get; set; }
 
 
+
+
   }
 }
-

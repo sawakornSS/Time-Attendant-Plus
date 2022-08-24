@@ -9,8 +9,8 @@ namespace backend_TimeAttPlus.Data
     { }
     //Dbset
 
-    public DbSet<ImportTime> tbl_ImportTimes { get; set; }
-    public DbSet<ImportTimeDetail> tbl_ImportTimesDetail { get; set; }
+    //public DbSet<ImportTime> tbl_ImportTimes { get; set; }
+    //public DbSet<ImportTimeDetail> tbl_ImportTimesDetail { get; set; }
     
   }
 
