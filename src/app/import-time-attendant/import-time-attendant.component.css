@@ -11,3 +11,13 @@
 .content-wrapper {
     background-color: white;
 }
+.btn-m{
+    margin: 2px 2px;
+}
+i{
+    width: 16px;
+    height: 16px;
+}
+/* .preview-table{
+    visibility: hidden;
+} */

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef,Input } from '@angular/core';
 import * as XLSX from 'xlsx';
+import { ImportService} from '../services/import.service';
+import { ImportTime } from '../models/import.model';
 
 @Component({
   selector: 'app-import-time-attendant',
@@ -8,6 +10,8 @@ import * as XLSX from 'xlsx';
 })
 export class ImportTimeAttendantComponent implements OnInit {
 
+  // import api variable
+  imports : ImportTime[] = [];
 
   @ViewChild('fileUpload', { static: false }) fileUploadElement: ElementRef;
   
@@ -15,13 +19,27 @@ export class ImportTimeAttendantComponent implements OnInit {
   data:any;
   tempData: any;
   constructor(
-    fileUploadElement: ElementRef
+    fileUploadElement: ElementRef ,
+    private importservice:ImportService
   ) { 
 
     this.fileUploadElement = fileUploadElement;
   }
 
   ngOnInit(): void {
+    // get Import data from api service
+    this.importservice.GetAllImport()
+    .subscribe({
+      next: (imports) => {
+        this.imports = imports;
+
+        console.log(imports);
+      },
+      error: (response) =>{
+        console.log(response);
+      }
+    })
+
   }
 
   onFileChang(evt: any){
