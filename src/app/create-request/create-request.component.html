@@ -37,9 +37,9 @@
                             <div class="col-3">
                                 <div class="form-group" data-select2-id="38">
                                     <label>Request</label>
-                                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1"  aria-hidden="true">                     
-                                    <option *ngFor="let leavetypes of leavetype;" name="leaveType" [(ngModel)]="AddLeaveRequest.leaveType">
-                                        {{leavetypes.description}}
+                                    <select class="form-control select2 select2-hidden-accessible" [(ngModel)]="AddLeaveRequest.leaveType" name="leaveType" style="width: 100%;" data-select2-id="1" tabindex="-1"   aria-hidden="true">                     
+                                    <option *ngFor="let leavetypes of leavetype;"  [ngValue]="leavetypes.leaveType" >
+                                        {{leavetypes.description}}({{leavetypes.leaveType}})
                                     </option>
                                   
                                     </select>
@@ -51,8 +51,8 @@
                                     <label>Site</label>
                                     <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                     
-                                    <option data-select2-id="39">CSI(Thailand)</option>
-                                    <option data-select2-id="40">California</option>
+                                    <option  data-select2-id="39">CSI(Thailand)</option>
+                                    <option  data-select2-id="40">California</option>
                                     <option data-select2-id="41"></option>
                                     </select>
                                     
@@ -63,7 +63,7 @@
                                     <label>Workplace</label>
                                     <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                     <option data-select2-id="39">CSI Site</option>
-                                    <option data-select2-id="40">California</option>
+                                    <option  data-select2-id="40">California</option>
                                     <option data-select2-id="41">Delaware</option>
                                     </select>
                                     
@@ -106,7 +106,7 @@
                             </div>
                             <!--  -->
                             <div class="float-right">
-                                <button type="submit" (click)="onSubmit"  class="btn btn-success" >
+                                <button type="submit"   class="btn btn-success" >
                                     <i class="fas fa-check"></i>
                                      Confirm
                                     </button>

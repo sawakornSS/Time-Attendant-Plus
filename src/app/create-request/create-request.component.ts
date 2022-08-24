@@ -17,19 +17,15 @@ export class CreateRequestComponent implements OnInit {
   requests : Request[] = [];
   leavetype : LeaveType[] = [];
   constructor(private requestservice:RequestService,private router:Router) { }
-  onSubmit() {
-    this.router.navigate(['/request-management']); 
-  }
+  
   AddLeaveRequest: Request = {
-    leaveNo : "22/00818" ,
-    leaveType : "AL",
+    leaveNo : "" ,
+    leaveType : "",
     reason : "",   
-    // RangeDateTime : "" + moment().format(),
-    // leaveDtTmTo : "" + moment().format(),
     RangeDateTime : "" ,
     leaveDtTmFrom : "",
     leaveDtTmTo : "",
-    leaveStatus : "WT",
+    leaveStatus : "",
     EmployeeNo : "890343"
     
     
@@ -55,9 +51,20 @@ export class CreateRequestComponent implements OnInit {
         console.log(request);
       }
     })
+    
     console.log(this.AddLeaveRequest);
+    this.router.navigateByUrl('/request-management');
     //console.log(this.AddLeaveRequest);
   }
+  // onSubmit():void {
+  //   //this.router.navigate(['request-management']); 
+  //   this.requestservice.addLeave(this.AddLeaveRequest).subscribe({
+  //     next: (request) =>{
+        
+  //     }
+  //   })
+    
+  // }
   
 
 }
