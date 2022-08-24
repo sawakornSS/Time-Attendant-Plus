@@ -22,7 +22,7 @@ export class RequestManagementComponent implements OnInit {
         
         this.requests = requests;
         
-        //console.log(requests)
+        console.log(requests)
       },
       error: (response) =>{
         console.log(response);
