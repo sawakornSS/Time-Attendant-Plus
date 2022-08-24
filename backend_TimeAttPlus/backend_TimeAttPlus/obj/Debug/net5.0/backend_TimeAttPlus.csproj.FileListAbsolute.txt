@@ -473,8 +473,3 @@ D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\obj\Debug\net
 D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\obj\Debug\net5.0\backend_TimeAttPlus.pdb
 D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\obj\Debug\net5.0\backend_TimeAttPlus.genruntimeconfig.cache
 D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\obj\Debug\net5.0\ref\backend_TimeAttPlus.dll
-D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\bin\Debug\net5.0\TimeAttPlus.Business.dll
-D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\bin\Debug\net5.0\EntityFramework.dll
-D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\bin\Debug\net5.0\TimeAttPlus.Business.pdb
-D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\bin\Debug\net5.0\TimeAttPlus.Business.dll.config
-D:\Jul\Time-Attendant-Plus\backend_TimeAttPlus\backend_TimeAttPlus\bin\Debug\net5.0\EntityFramework.xml

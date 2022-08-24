@@ -2084,15 +2084,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "TimeAttPlus.Business/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/TimeAttPlus.Business.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TimeAttPlus.Business.dll": {}
-        }
       }
     }
   },
@@ -7328,11 +7319,6 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "TimeAttPlus.Business/1.0.0": {
-      "type": "project",
-      "path": "../TimeAttPlus.Business/TimeAttPlus.Business.csproj",
-      "msbuildProject": "../TimeAttPlus.Business/TimeAttPlus.Business.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7341,8 +7327,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.17",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.17",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
-      "Swashbuckle.AspNetCore >= 5.6.3",
-      "TimeAttPlus.Business >= 1.0.0"
+      "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
   "packageFolders": {
@@ -7371,11 +7356,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj": {
-              "projectPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

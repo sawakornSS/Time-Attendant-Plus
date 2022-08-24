@@ -17,8 +17,9 @@ namespace backend_TimeAttPlus.Models
   public class ImportTimeDetail
   {
     [Key]
-    public int ImportID { get; set; }
     public int DetailID { get; set; }
+    public int ImportID { get; set; }
+    
     public string EmployeeID { get; set; } = "890343";
     public string LeaveNo { get; set; }
     public string EmployeeName { get; set; }

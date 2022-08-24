@@ -27,11 +27,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj": {
-                "projectPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -93,21 +89,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj": {
-      "restore": {
-        "projectUniqueName": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj",
-        "projectName": "TimeAttPlus.Business",
-        "projectPath": "D:\\Jul\\Time-Attendant-Plus\\backend_TimeAttPlus\\TimeAttPlus.Business\\TimeAttPlus.Business.csproj",
-        "frameworks": {
-          "net472": {
-            "projectReferences": {}
-          }
-        }
-      },
-      "frameworks": {
-        "net472": {}
       }
     }
   }
