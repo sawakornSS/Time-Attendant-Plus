@@ -80,7 +80,9 @@ export class ImportTimeAttendantComponent implements OnInit {
   }
 
   onPreviewClick(evt:any){
+    
     this.data = this.tempData;
+    console.log(this.data);
   }
 }
 

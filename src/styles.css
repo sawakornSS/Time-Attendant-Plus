@@ -6,4 +6,9 @@
 @import "../node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.css";
 @import "../node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css";
 @import "~@danielmoncada/angular-datetime-picker/assets/style/picker.min.css";
-     
+
+
+.container-fluid{
+    padding-left: 1rem !important;
+}
+
