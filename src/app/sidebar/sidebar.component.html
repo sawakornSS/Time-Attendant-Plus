@@ -16,8 +16,8 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
-                    <a routerLink="/home" class="nav-link active" id="menu1" aria-valuetext="menu1" (click)="clickmenu($event,'menu1')" >
-                        <i class="nav-icon far fa-calendar-alt main-color"></i>
+                    <a routerLink="/home" class="nav-link active" id="menu1" aria-valuetext="menu1" (click)="clickmenu($event,'menu1','child-menu1')" >
+                        <i class="nav-icon far fa-calendar-alt main-color" id="child-menu1"></i>
                         <p>
                             Issues Calendar
                             <!-- <span class="badge badge-info right">2</span> -->
@@ -25,16 +25,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/request-management" class="nav-link " id="menu2" aria-valuetext="menu2" (click)="clickmenu($event,'menu2')" >
-                        <i class="nav-icon far fa-image"></i>
+                    <a routerLink="/request-management" class="nav-link " id="menu2" aria-valuetext="menu2" (click)="clickmenu($event,'menu2','child-menu2')" >
+                        <i class="nav-icon far fa-image" id="child-menu2"></i>
                         <p>
                             Request Management
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/approve" class="nav-link" id="menu3" aria-valuetext="menu3" (click)="clickmenu($event,'menu3')" >
-                        <i class="nav-icon fas fa-columns"></i>
+                    <a routerLink="/approve" class="nav-link" id="menu3" aria-valuetext="menu3" (click)="clickmenu($event,'menu3','child-menu3')" >
+                        <i class="nav-icon fas fa-columns" id="child-menu3" id="child-menu3"></i>
                         <p>
                             Approve
                         </p>
@@ -42,34 +42,28 @@
                 </li>
 
                 <li class="nav-item">
-                    <a routerLink="/profile" class="nav-link" id="menu4" aria-valuetext="menu4" value="menu4" (click)="clickmenu($event,'menu4')" >
-                        <i class="nav-icon fas fa-user"></i>
+                    <a routerLink="/profile" class="nav-link" id="menu4" aria-valuetext="menu4" value="menu4" (click)="clickmenu($event,'menu4','child-menu4')" >
+                        <i class="nav-icon fas fa-user" id="child-menu4"></i>
                         <p>
                             User Profile
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/reportEmployee" class="nav-link" id="menu5" aria-valuetext="menu5" value="menu5" (click)="clickmenu($event,'menu5')" >
-                        <i class="nav-icon fas fa-file"></i>
+                    <a routerLink="/reportEmployee" class="nav-link" id="menu5" aria-valuetext="menu5" value="menu5" (click)="clickmenu($event,'menu5','child-menu5')" >
+                        <i class="nav-icon fas fa-file" id="child-menu5"></i>
                         <p>
                             Report Employee
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/importTime" class="nav-link" id="menu6" aria-valuetext="menu6" value="menu6" (click)="clickmenu($event,'menu6')" >
-                        <i class="nav-icon fas fa-upload "></i>
+                    <a routerLink="/importTime" class="nav-link" id="menu6" aria-valuetext="menu6" value="menu6" (click)="clickmenu($event,'menu6','child-menu6')" >
+                        <i class="nav-icon fas fa-upload " id="child-menu6"></i>
                         <p>
                             Import Time Attendant
                         </p>
                     </a>
-                </li>
-                <li>
-                    <div class="my_class" (click)="clickEvent()"  
-                    [ngClass]="status ? 'success' : 'danger'">                
-                    Some content
-                </div>
                 </li>
 
             </ul>

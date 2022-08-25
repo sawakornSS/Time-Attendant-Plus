@@ -13,48 +13,32 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  clickEvent(){
-    this.status = !this.status;       
-}
-
-
-clickmenu(event: Event, menu :string){
-  var Menu1:any = document.getElementById('menu1');
-  var Menu2:any = document.getElementById('menu2');
-  var Menu3:any = document.getElementById('menu3');
-  var Menu4:any = document.getElementById('menu4');
-  var Menu5:any = document.getElementById('menu5');
-  var Menu6:any = document.getElementById('menu6');
   
+clickmenu(event: Event, menu :string, child : string){
+  // Gets the ID from the user's input.
+  var MenuID : any = document.getElementById(menu)
+  var ChildID : any = document.getElementById(child)
 
-  var MenuID = document.getElementById(menu);
+  // Add classes from the desired ID and 
+  // Remove the classes from the unwanted ID.
+  for (let i = 1; i <= 6; i++) {
+    var tmp_menu:any = 'menu' + i;
+    var tmp_child:any = 'child-menu' + i;
 
-  if(menu != ''){
-    Menu1.classList.remove('active');
-    Menu2.classList.remove('active');
-    Menu3.classList.remove('active');
-    Menu4.classList.remove('active');
-    Menu5.classList.remove('active');
-    Menu6.classList.remove('active');
+    var tmp_MenuID:any = document.getElementById(tmp_menu);
+    var tmp_ChildID:any = document.getElementById(tmp_child);
+
+    if(menu == tmp_menu){
+      MenuID?.classList.add('active');
+      ChildID?.classList.add('main-color');
+    }else{
+      tmp_MenuID.classList.remove('active')
+      tmp_ChildID.classList.remove('main-color')
+    }
+    
+
   }
-
-  MenuID?.classList.add('active');
-
-
-  // console.log(typeof(menu));
-  // typeof(menu);
-
   
-  
-
-
-
-  // var NumMenu = (<HTMLElement>event.target);
-  // console.log(NumMenu);
-  
-  // var color = (event.target as HTMLInputElement).value;
-  //   console.log(color);
-  // NumMenu.classList.add('active')
 }
 
 }
