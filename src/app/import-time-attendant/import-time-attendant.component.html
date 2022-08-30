@@ -9,6 +9,8 @@
             <div class="d-flex justify-content-center mt-4">
                 <div class="card ">
                     <div class="card-body">
+                        <h5 class="font-weight-bold">Choose a file to upload.</h5>
+                        <p>CSV, XLSX file types are allowed. <span class="text-danger">(1 File Per Upload)</span></p>
                         <form action="post">
                         <div class="input-group">
                             <!-- Upload Excel-->
@@ -76,9 +78,9 @@
                             </thead>
                             <tbody>
                                 <tr class="odd" *ngFor="let import of imports">
-                                    <td class="dtr-control sorting_1" tabindex="0">{{import.importID}}</td>
+                                    <td class="dtr-control sorting_1 text-center" tabindex="0">{{import.importID}}</td>
                                     <td>{{import.uploadBy}}</td>
-                                    <td>{{import.uploadDate}}</td>
+                                    <td>{{import.uploadDate | date: 'dd/MM/yyyy'}}</td>
                                     <td>{{import.currentLeaveState}}</td>
                                     <td>
                                         <button type="button" class="btn btn-success btn-m"><i class="fas fa-check"></i></button>
@@ -123,6 +125,8 @@
                     
                 </div>
             </div>
+            <!-- test here -->
+            
         </div>
         
     </section>

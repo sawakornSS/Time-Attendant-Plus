@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\backend_TimeAttPlus",
+    "\\backend_TimeAttPlus\\Controllers"
   ],
   "SelectedNode": "\\backend_TimeAttPlus.sln",
   "PreviewInSolutionExplorer": false

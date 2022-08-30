@@ -44,7 +44,7 @@ export class ImportTimeAttendantComponent implements OnInit {
 
   onFileChang(evt: any){
     // let data:any;
-    alert("Read!s");
+    console.log("Read!s");
     const target: DataTransfer = <DataTransfer>(evt.target);
 
     if(target.files.length !== 1) throw new Error('1 File 1 Request Import');

@@ -11,7 +11,7 @@ namespace backend_TimeAttPlus.Models
     [Key]
     public int ImportID { get; set; }
     public string UploadBy { get; set; } = "890343";
-    public DateTime? UploadDate { get; set; } = DateTime.Now;
+    public DateTime? UploadDate { get; set; }
     public int CurrentLeaveState { get; set; }
     public string LeaveStatus { get; set; }
 

@@ -9,8 +9,7 @@ using System.Data;
 using System.Collections.Generic;
 using System;
 using Newtonsoft.Json;
-
-
+using System.Globalization;
 
 namespace backend_TimeAttPlus.Controllers
 {
@@ -18,7 +17,9 @@ namespace backend_TimeAttPlus.Controllers
   [Route("api/[controller]")]
   public class ImportController : Controller
   {
-    SqlConnection con = new SqlConnection("server=.;database=mydb;User ID=sa;Password=12345678");
+    //SqlConnection con = new SqlConnection("server=.;database=mydb;User ID=sa;Password=12345678");
+
+    SqlConnection con = new SqlConnection(@"Data Source=192.168.12.35\sql2017i2;Initial Catalog=TimeAttdPlus;Persist Security Info=True;User ID=trainee;Password=trainee");
     ImportTime import = new ImportTime();
 
 
@@ -41,13 +42,12 @@ namespace backend_TimeAttPlus.Controllers
         {
           ImportTime import = new ImportTime();
 
-         
-
           import.ImportID = Convert.ToInt32(dt.Rows[i]["ImportID"]);
-          import.UploadBy = dt.Rows[i]["UploadBy"].ToString();
+          import.UploadBy = dt.Rows[i]["UploadBy"].ToString();   
           import.UploadDate = Convert.ToDateTime(dt.Rows[i]["UploadDate"]);
           import.CurrentLeaveState = Convert.ToInt32(dt.Rows[i]["CurrentLeaveState"]);
           import.LeaveStatus = dt.Rows[i]["LeaveStatus"].ToString();
+
           lstImport.Add(import);
         }
       }
