@@ -19,7 +19,7 @@ import { CreateRequestComponent } from './create-request/create-request.componen
 import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MaterialModule} from '../material-module';
 
 
 @NgModule({
@@ -50,8 +50,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     OwlNativeDateTimeModule,
     BrowserAnimationsModule,
     FormsModule,
-    DataTablesModule
-   
+    DataTablesModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
