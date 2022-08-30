@@ -72,21 +72,24 @@
 
                     <tr class="odd" *ngFor="let request of requests">
                       <td class="dtr-control sorting_1" tabindex="0">{{request.leaveType}}</td>
-                      <td>{{request.leaveDtTmFrom}}</td>
-                      <td>{{request.leaveDtTmTo}}</td>
+                      <td>{{request.leaveDtTmFrom | date: 'dd/MM/yyyy'}}</td>
+                      <td>{{request.leaveDtTmTo| date: 'dd/MM/yyyy'}}</td>
                       <!-- <td>{{request.leaveStatus}}</td> -->
-                      <td>1</td>
+                      <td>{{request.leaveDay}}/{{request.leaveHour}}/{{request.leaveMin}}</td>
                       
                       <td><span class="badge bg-warning">Waitting</span></td>
-                      <td>
-                          <div class="col-md-6">
-                            <button type="button" class="btn btn-block btn-secondary">
-                              <i class="fas fa-search"></i>
-                            </button>    
-                          </div>
-                          
-                                               
+                      <td _ngcontent-mem-c54="">
+                        <button _ngcontent-mem-c54="" type="button" class="btn btn-success btn-m">
+                          <i _ngcontent-mem-c54="" class="fas fa-check"></i>
+                        </button>
+                      
+                          <button _ngcontent-mem-c54="" type="button" class="btn btn-secondary btn-m">
+                            <i _ngcontent-mem-c54="" class="fas fa-search">
+
+                          </i>
+                        </button>
                       </td>
+                   
                     </tr>
                     <!-- <tr class="even">
                       <td class="dtr-control sorting_1" tabindex="0">AL</td>

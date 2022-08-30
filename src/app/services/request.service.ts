@@ -16,7 +16,7 @@ export class RequestService {
 
   GetAllRequest() : Observable<Request[]>{
     
-    return this.http.get<Request[]>(this.baseApiUrl + 'api/Requests');
+    return this.http.get<Request[]>(this.baseApiUrl + 'api/Requests/GetAllRequest');
   }
   GetLeaveType() : Observable<LeaveType[]>{
     return this.http.get<LeaveType[]>(this.baseApiUrl + 'api/Requests/GetLeaveType');

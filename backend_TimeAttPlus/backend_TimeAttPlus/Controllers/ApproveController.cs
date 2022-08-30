@@ -53,9 +53,9 @@ namespace backend_TimeAttPlus.Controllers
       }
 
     }
-    [HttpGet]
+    [HttpPost]
     [Route("GetApproveflow")]
-    public List<Approve> GetApproveflow(string EmpNo, List<Approve> empNo)
+    public List<Approve> GetApproveflow(string EmpNo)
     {
       SqlDataAdapter da = new SqlDataAdapter("sp_SetApproveFlow_Load", con);
       da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -78,7 +78,7 @@ namespace backend_TimeAttPlus.Controllers
       if(EmpNo != null)
       {
 
-        return empNo;
+        return null;
 
       }
       else

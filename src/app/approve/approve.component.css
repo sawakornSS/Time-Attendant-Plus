@@ -1,0 +1,13 @@
+.card-header{
+    color: white;
+    background-color: #FABF26;
+    font-size: 24px;
+    font-weight: 600;
+}
+.btn_group{
+    width: 100%; 
+    margin-bottom: 10px;
+}
+.btn-m{
+    margin: 2px 2px;
+}

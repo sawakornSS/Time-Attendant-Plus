@@ -34,7 +34,8 @@ namespace backend_TimeAttPlus
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend_TimeAttPlus", Version = "v1" });
             });
-            services.AddRazorPages();
+      services.AddHttpContextAccessor();
+      services.AddRazorPages();
             services.AddDbContext<RequestDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

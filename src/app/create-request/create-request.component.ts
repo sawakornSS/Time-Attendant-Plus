@@ -26,8 +26,14 @@ export class CreateRequestComponent implements OnInit {
     leaveDtTmFrom : "",
     leaveDtTmTo : "",
     leaveStatus : "",
-    EmployeeNo : "890343"
-    
+    EmployeeNo : "890343",
+    leaveDay : 0,
+    leaveHour : 0,
+    leaveMin : 0,
+    ccreceiver : "",
+    currentLeaveState :0,
+    projectSiteCode : 0,
+    ProjectSiteAllowance : 0,
     
   };
   ngOnInit(): void {

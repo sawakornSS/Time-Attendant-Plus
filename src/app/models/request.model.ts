@@ -1,4 +1,5 @@
 
+
 export interface Request{
     leaveNo : string;
     leaveType : string;
@@ -8,6 +9,13 @@ export interface Request{
     leaveDtTmTo : string;
     leaveStatus : string;
     EmployeeNo : string;
+    leaveDay : number;
+    leaveHour : number;
+    leaveMin : number;
+    ccreceiver : string;
+    currentLeaveState : number;
+    projectSiteCode : number;
+    ProjectSiteAllowance : number;
     
 }
 export interface LeaveType{
