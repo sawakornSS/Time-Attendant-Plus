@@ -16,14 +16,5 @@ export class ImportService {
   GetAllImport() : Observable<ImportTime[]>{
     return this.http.get<ImportTime[]>(this.baseApiUrl + 'api/Import/GetAllImport');
   }
-  // GetLeaveType() : Observable<LeaveType[]>{
-  //   return this.http.get<LeaveType[]>(this.baseApiUrl + 'api/Requests/GetLeaveType');
-  // }
-  // addLeave(AddLeaveRequest: Request):Observable<Request>{
-  //   // AddLeaveRequest.leaveDtTmTo = moment().format();
-  //   // AddLeaveRequest.leaveDtTmFrom = moment().format();
-  //   AddLeaveRequest.leaveType = 'AL'
-  //   return this.http.post<Request>(this.baseApiUrl + 'api/Requests/AddRequest',
-  //   AddLeaveRequest);
-  // }
+  
 }

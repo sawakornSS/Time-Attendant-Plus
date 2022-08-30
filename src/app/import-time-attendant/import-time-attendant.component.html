@@ -5,9 +5,12 @@
             <div class="leftbar">
                 <p class="text-title">Import Time Attendant</p>
             </div>
+            <hr>
             <div class="d-flex justify-content-center mt-4">
                 <div class="card ">
                     <div class="card-body">
+                        <h5 class="font-weight-bold">Choose a file to upload.</h5>
+                        <p>CSV, XLSX file types are allowed. <span class="text-danger">(1 File Per Upload)</span></p>
                         <form action="post">
                         <div class="input-group">
                             <!-- Upload Excel-->
@@ -75,9 +78,9 @@
                             </thead>
                             <tbody>
                                 <tr class="odd" *ngFor="let import of imports">
-                                    <td class="dtr-control sorting_1" tabindex="0">{{import.importID}}</td>
+                                    <td class="dtr-control sorting_1 text-center" tabindex="0">{{import.importID}}</td>
                                     <td>{{import.uploadBy}}</td>
-                                    <td>{{import.uploadDate}}</td>
+                                    <td>{{import.uploadDate | date: 'dd/MM/yyyy'}}</td>
                                     <td>{{import.currentLeaveState}}</td>
                                     <td>
                                         <button type="button" class="btn btn-success btn-m"><i class="fas fa-check"></i></button>
@@ -122,6 +125,86 @@
                     
                 </div>
             </div>
+            <!-- test here -->
+
+            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <mat-form-field>
+                            <mat-label>Filter</mat-label>
+                            <input matInput placeholder="Filter" (keyup)="Filterchange($event)">
+                        </mat-form-field>
+            
+                        <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+
+                            <!-- <ng-container matColumnDef="select">
+                                <th mat-header-cell *matHeaderCellDef>
+                                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                                [checked]="selection.hasValue() && isAllSelected()"
+                                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                                [aria-label]="checkboxLabel()">
+                                  </mat-checkbox>
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                  <mat-checkbox (click)="$event.stopPropagation()"
+                                                (change)="$event ? selection.toggle(row) : null"
+                                                [checked]="selection.isSelected(row)"
+                                                [aria-label]="checkboxLabel(row)">
+                                  </mat-checkbox>
+                                </td>
+                              </ng-container> -->
+            
+                            <!--- Note that these columns can be defined in any order.
+                                  The actual rendered columns are set as a property on the row definition" -->
+                          
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="importID">
+                              <th mat-sort-header  mat-header-cell *matHeaderCellDef> Request ID </th>
+                              <td mat-cell *matCellDef="let element"> {{element.importID}} </td>
+                            </ng-container>
+                          
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="uploadBy">
+                              <th mat-header-cell *matHeaderCellDef> uploadBy </th>
+                              <td mat-cell *matCellDef="let element"> {{element.uploadBy}} </td>
+                            </ng-container>
+                          
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="uploadDate">
+                              <th mat-sort-header  mat-header-cell *matHeaderCellDef> uploadDate </th>
+                              <td mat-cell *matCellDef="let element"> {{element.uploadDate | date: 'dd/MM/yyyy'}} </td>
+                            </ng-container>
+                          
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="leaveStatus">
+                              <th mat-header-cell *matHeaderCellDef> leaveStatus </th>
+                              <td mat-cell *matCellDef="let element"> {{element.leaveStatus}} </td>
+                            </ng-container>
+            
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Action</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button (click)="AprooveData(element.importID)" type="button" class="btn btn-success btn-m"><i class="fas fa-check"></i></button>
+                                    <button type="button" class="btn btn-danger btn-m"><i class="fas fa-times"></i></button>
+                                    <button type="button" class="btn btn-secondary btn-m"><i class="fas fa-search"></i></button>
+                                </td>
+                            </ng-container>
+                            
+                          
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr (click)="getrow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          </table>
+                          
+                          <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons>
+            
+                          </mat-paginator>
+                    </div>
+                </div>
+            </div>
+
+            
+              <!-- test here -->
+              
         </div>
         
     </section>

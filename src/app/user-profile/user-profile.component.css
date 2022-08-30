@@ -1,7 +1,7 @@
 .card-header{
     color: white;
     background-color: #FABF26;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
 }
 .card-body{
@@ -10,17 +10,17 @@
 .text-detail{
     color: #808080;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
 
 }
 .text-title{
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 img{
-    width: 160px;
+    width: 120px;
     height: auto;
     object-fit: cover;
     border-radius: 6px;
