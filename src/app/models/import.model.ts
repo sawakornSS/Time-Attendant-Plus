@@ -1,9 +1,9 @@
 
 export interface ImportTime{
-    importID : BigInt;
+    importID : number;
     uploadBy : string;
     uploadDate : string;
-    currentLeaveState : BigInt;
+    currentLeaveState : number;
     leaveStatus : string;
     
 }

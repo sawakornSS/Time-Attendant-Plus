@@ -17,4 +17,12 @@ export class ImportService {
     return this.http.get<ImportTime[]>(this.baseApiUrl + 'api/Import/GetAllImport');
   }
   
+  ServiceAddPreview(AddImportTime: ImportTime):Observable<ImportTime>{
+   
+    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Requests/AddRequest',
+    AddImportTime);
+
+    // return this.http.post<Request>(this.baseApiUrl + 'api/Requests/AddRequest',
+    // AddLeaveRequest);
+  }
 }

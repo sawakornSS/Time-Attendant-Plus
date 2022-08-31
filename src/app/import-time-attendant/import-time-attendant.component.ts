@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
 import {SelectionModel} from '@angular/cdk/collections';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -42,6 +43,17 @@ export class ImportTimeAttendantComponent implements OnInit {
     this.fileUploadElement = fileUploadElement;
   }
 
+  // add preview Data
+   AddImportTime : ImportTime = {
+    importID : 0,
+    uploadBy : "Sawakorn S.",
+    uploadDate : "",
+    currentLeaveState : 4,
+    leaveStatus : "WT"
+    
+  };
+  // add preview Data
+
   ngOnInit(): void {
     // get Import data from api service
     this.importservice.GetAllImport()
@@ -73,37 +85,6 @@ export class ImportTimeAttendantComponent implements OnInit {
   AprooveData(importID : any){
     console.log(importID);
   }
-
-  // select datatable
-
-  /** Whether the number of selected elements matches the total number of rows. */
-  // isAllSelected() {
-  //   const numSelected = this.dataSource.selection.selected.length;
-  //   const numRows = this.dataSource.data.length;
-  //   return numSelected === numRows;
-  // }
-
-  // /** Selects all rows if they are not all selected; otherwise clear selection. */
-  // toggleAllRows() {
-  //   if (this.isAllSelected()) {
-  //     this.dataSource.selection.clear();
-  //     return;
-  //   }
-
-  //   this.dataSource.selection.select(...this.dataSource.data);
-  // }
-
-  
-  // /** The label for the checkbox on the passed row */
-  // checkboxLabel(row?: ImportTime): string {
-  //   if (!row) {
-  //     return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
-  //   }
-  //   return `${this.dataSource.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.importID + 1}`;
-  // }
-
-  // select datatable
-
 
   onFileChang(evt: any){
     // let data:any;
@@ -146,6 +127,36 @@ export class ImportTimeAttendantComponent implements OnInit {
     
     this.data = this.tempData;
     console.log(this.data);
+  }
+
+  reset(evt:any){
+    // console.log("----------- Cancel -------------")
+    this.fileUploadElement.nativeElement.labels[0].innerText = "Choose file";
+    this.data = [];
+    this.tempData = [];
+
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
+
+  AddImport(){
+    alert("Save Progress");
+
+    // this.AddLeaveRequest.leaveDtTmFrom = this.AddLeaveRequest.RangeDateTime[0]
+    // this.AddLeaveRequest.leaveDtTmTo = this.AddLeaveRequest.RangeDateTime[1]
+    // this.requestservice.addLeave(this.AddLeaveRequest)
+    // .subscribe({
+    //   next: (request) =>{
+    //     console.log(request);
+    //   }
+    // })
+    
+    // console.log(this.AddLeaveRequest);
+    // this.router.navigateByUrl('/request-management');
+    //console.log(this.AddLeaveRequest);
   }
 
  
