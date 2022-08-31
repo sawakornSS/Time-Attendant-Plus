@@ -19,10 +19,8 @@ export class ImportService {
   
   ServiceAddPreview(AddImportTime: ImportTime):Observable<ImportTime>{
    
-    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Requests/AddRequest',
+    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Import/AddImportTime',
     AddImportTime);
 
-    // return this.http.post<Request>(this.baseApiUrl + 'api/Requests/AddRequest',
-    // AddLeaveRequest);
   }
 }

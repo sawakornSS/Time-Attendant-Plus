@@ -33,7 +33,10 @@ export class ImportTimeAttendantComponent implements OnInit {
   // DataTable
   
   // let data: any[][] = [[],[]];
-  data:any;
+  data:any; // raw_excel_data;
+  datasource_table : [] = [];
+  datasource_table2 !: String[];
+
   tempData: any;
   constructor(
     fileUploadElement: ElementRef ,
@@ -49,7 +52,7 @@ export class ImportTimeAttendantComponent implements OnInit {
     uploadBy : "Sawakorn S.",
     uploadDate : "",
     currentLeaveState : 4,
-    leaveStatus : "WT"
+    leaveStatus : "WT",
     
   };
   // add preview Data
@@ -126,7 +129,10 @@ export class ImportTimeAttendantComponent implements OnInit {
   onPreviewClick(evt:any){
     
     this.data = this.tempData;
+    
+   
     console.log(this.data);
+
   }
 
   reset(evt:any){
@@ -142,23 +148,31 @@ export class ImportTimeAttendantComponent implements OnInit {
     });
   }
 
-  AddImport(){
+  AddImport(evt: any){
     alert("Save Progress");
-
+    console.log(this.tempData);
     // this.AddLeaveRequest.leaveDtTmFrom = this.AddLeaveRequest.RangeDateTime[0]
     // this.AddLeaveRequest.leaveDtTmTo = this.AddLeaveRequest.RangeDateTime[1]
-    // this.requestservice.addLeave(this.AddLeaveRequest)
-    // .subscribe({
-    //   next: (request) =>{
-    //     console.log(request);
-    //   }
-    // })
+    this.importservice.ServiceAddPreview(this.AddImportTime)
+    .subscribe({
+      next: (request) =>{
+        console.log(request);
+      }
+    })
     
-    // console.log(this.AddLeaveRequest);
+    console.log(this.AddImportTime);
     // this.router.navigateByUrl('/request-management');
     //console.log(this.AddLeaveRequest);
   }
 
+  formatTime(value : any){
+    var time_array = value.split(":");
+    if (time_array.length != 2) return "";
+    else {
+      return time_array[0].padStart(2,'0') + ":" + time_array[1].padStart(2,'0');
+    }
+
+  }
  
 }
 

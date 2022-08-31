@@ -12,7 +12,7 @@
                         <h5 class="font-weight-bold">Choose a file to upload.</h5>
                         <p>CSV, XLSX file types are allowed. <span class="text-danger">(1 File Per Upload)</span></p>
                         
-                        <form #from="ngForm" (ngSubmit)="AddImport()">
+                        <form #from="ngForm" (ngSubmit)="AddImport($event)">
                         <div class="input-group">
                             <!-- Upload Excel-->
                             <div class="custom-file">
@@ -27,15 +27,69 @@
                         <div id="Preview_wrapper" class="Preview_wrapper dt-bootstrap4 mt-2">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="Preview" class="table table-bordered table-striped dataTable dtr-inline preview-table"
+                                    <table id="Preview" class="table table-bordered table-striped dataTable dtr-inline preview-table font-md"
                                         aria-describedby="Preview_info">
                                         <thead>
-                                            <tr class="odd" *ngFor="let row of data">
-                                                <td *ngFor="let cell of row">
-                                                    {{cell}}
-                                                </td>
+                                            <tr>
+                                              <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Employee No.
+                                              </th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Browser: activate to sort column ascending">Name</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Platform(s): activate to sort column ascending">Date</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Engine version: activate to sort column ascending">Time In</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Time Out</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Site Start Time
+                                            </th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Site Stop Time
+                                            </th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Project Name
+                                            </th>
+                                              
                                             </tr>
-                                        </thead>
+                                          </thead>
+                                        <ng-template ngFor let-row [ngForOf]="data"> 
+                                            <ng-container *ngTemplateOutlet="row.length == 7 ? viewData : viewEmpty">
+
+                                            </ng-container>
+                                            <ng-template #viewData>
+                                                <tr>
+                                                    <td >
+                                                        {{row[0]}}
+                                                    </td>
+                                                    <td >
+                                                        {{row[1]}}
+                                                    </td>
+                                                    <td >
+                                                        {{row[2] | date: 'dd/MM/yyyy'}}
+                                                    </td>
+                                                    <td >
+                                                        {{ formatTime(row[3]) }}
+                                                    </td>
+                                                    <td >
+                                                        {{row[4]}}
+                                                    </td>
+                                                    <td >
+                                                        {{ formatTime(row[5]) }}
+                                                    </td>
+                                                    <td >
+                                                        {{row[6]}}
+                                                    </td>
+                                                    <td >
+                                                        {{row[7]}}
+                                                    </td>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template #viewEmpty>
+
+                                            </ng-template>
+                                        </ng-template>
                                     </table>
                                     <div class="d-flex justify-content-center mt-3">
                                         <button type="reset" class="btn btn-default mr-2" (click)="reset($event)" >Cancel</button>

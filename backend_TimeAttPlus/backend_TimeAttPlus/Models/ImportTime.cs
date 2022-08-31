@@ -15,7 +15,10 @@ namespace backend_TimeAttPlus.Models
     public int CurrentLeaveState { get; set; }
     public string LeaveStatus { get; set; }
 
-
+    public class ImportTimeDetail
+    {
+      public ImportTimeDetail ss { get; set; }
+    }
 
   }
   public class ImportTimeDetail

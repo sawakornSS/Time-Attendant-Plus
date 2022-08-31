@@ -59,11 +59,47 @@ namespace backend_TimeAttPlus.Controllers
       {
         return null;
       }
-
-
-
     }//getall
 
+    [HttpPost]
+    [Route("AddImportTime")]
+    public string AddImportTime(ImportTime imt)
+    {
+      Console.WriteLine("123");
+      string msg = string.Empty;
+      try
+      {
+        Console.WriteLine("123");
+        //SqlCommand com = new SqlCommand("sp_LeaveRecord_Insert", con);
+        //com.CommandType = CommandType.StoredProcedure;
+
+
+        //com.Parameters.AddWithValue("@EmployeeNo", req.EmployeeNo);
+        //com.Parameters.AddWithValue("@LeaveType", req.LeaveType);
+        //com.Parameters.AddWithValue("@Reason", req.Reason);
+        //com.Parameters.AddWithValue("@LeaveDtTmFrom", req.LeaveDtTmFrom);
+        //com.Parameters.AddWithValue("@LeaveDtTmTo", req.LeaveDtTmTo);
+        //com.Parameters.AddWithValue("@ProjectSiteCode", req.ProjectSiteCode);
+        //com.Parameters.AddWithValue("@ProjectSiteAllowance", req.ProjectSiteAllowance);
+
+        //con.Open();
+        //com.ExecuteNonQuery();
+        //con.Close();
+        //msg = "SUCCESS";
+      }
+      catch (Exception ex)
+      {
+        msg = ex.Message;
+      }
+      finally
+      {
+        if (con.State == (ConnectionState.Open))
+        {
+          con.Close();
+        }
+      }
+      return msg;
+    }//POST
 
 
 
