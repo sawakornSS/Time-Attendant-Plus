@@ -5,9 +5,10 @@ namespace backend_TimeAttPlus.Models
 {
   public class Approve
   {
-    public string AppStateNo { get; set; }
+
+    public string AppStateNo { get; set; } 
     
-    public string ApproverNo { get; set; }
+    public string ApproverNo { get; set; } 
     public string ApproverName { get; set; }
     public string PositionAlias { get; set; }
     public  string AppStateCode { get; set; }

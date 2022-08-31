@@ -62,15 +62,7 @@ export class CreateRequestComponent implements OnInit {
     this.router.navigateByUrl('/request-management');
     //console.log(this.AddLeaveRequest);
   }
-  // onSubmit():void {
-  //   //this.router.navigate(['request-management']); 
-  //   this.requestservice.addLeave(this.AddLeaveRequest).subscribe({
-  //     next: (request) =>{
-        
-  //     }
-  //   })
-    
-  // }
+  
   
 
 }

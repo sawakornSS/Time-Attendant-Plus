@@ -4,93 +4,61 @@
             <p class="text-title">Add Approving flow</p>
         </div>
         <div class="d-flex justify-content-center mt-4">
-           <div class="card">
-            <form>
-                <div class="card-body">
-                   
-                    <div class="col-sm-12">
-                    
-                    <div class="row">
-                        <div class="col-16">
-                            <div class="form-group" data-select2-id="38">
-                                <label>Approve State</label>
-                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1"  aria-hidden="true">
-                                
-                                <option data-select2-id="39">Time Correcting</option>
-                                <option data-select2-id="40">Leave</option>
-                                <option data-select2-id="41">Delaware</option>
-                                <option data-select2-id="42">Tennessee</option>
-                                <option data-select2-id="43">Texas</option>
-                                <option data-select2-id="44">Washington</option>
+            <div class="col-6">
+                <div class="card">
+                    <form action="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="inputsm">Approve State</label>
+                                <select class="form-control select2 select2-hidden-accessible"  style="width: 100%;"
+                                    data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option data-select2-id="39" *ngFor="let approveflows of approveflow">
+                                        {{approveflows.appStateCode}}
+                                    </option>
+                                    
                                 </select>
-                                
+                            </div>
+                            <div class="form-group">
+                                <label for="inputsm">Approver</label>
+                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                    data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option data-select2-id="39" *ngFor="let approveflows of approveflow">
+                                        {{approveflows.approverName}}
+                                    </option>
+                                    
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputsm">Organize/Project</label>
+                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                    data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option data-select2-id="39" *ngFor="let approveflows of approveflow">
+                                        {{approveflows.orgPrjCode}}
+                                    </option>
+                                   
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                            
+                                <button type="submit" routerLink="/request-management" class="btn btn-primary mr-2">
+                                    <i class="fas fa-arrow-left"></i>
+                                     Previous
+                                    </button>
+                                    
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-check"></i>
+                                             Confirm
+                                            </button>
+                                    
                             </div>
                         </div>
-                        
-                         
-                    </div>
-                    <div class="row">
-                        <div class="col-16">
-                            <div class="form-group" data-select2-id="38">
-                                <label>Approver</label>
-                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1"  aria-hidden="true">
-                                
-                                <option data-select2-id="39">Time Correcting</option>
-                                <option data-select2-id="40">Leave</option>
-                                <option data-select2-id="41">Delaware</option>
-                                <option data-select2-id="42">Tennessee</option>
-                                <option data-select2-id="43">Texas</option>
-                                <option data-select2-id="44">Washington</option>
-                                </select>
-                                
-                            </div>
-                        </div>
-                      
-                        
-                    </div>
-                    <div class="row">
-                        <div class="col-16">
-                            <div class="form-group" data-select2-id="38">
-                                <label>Organize/Project</label>
-                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1"  aria-hidden="true">
-                                
-                                <option data-select2-id="39">Time Correcting</option>
-                                <option data-select2-id="40">Leave</option>
-                                <option data-select2-id="41">Delaware</option>
-                                <option data-select2-id="42">Tennessee</option>
-                                <option data-select2-id="43">Texas</option>
-                                <option data-select2-id="44">Washington</option>
-                                </select>
-                                
-                            </div>
-                        </div>
-                      
-                        
-                    </div>
-                   
-                   
+
+                    </form>
                 </div>
-                </div>
-                    <!-- footer -->
-                    <div class="card-footer">
-                        <div class="float-left">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-arrow-left"></i>
-                                 Previous
-                                </button>
-                        </div>
-                        <div class="float-right">
-                            <button type="submit" class="btn btn-success">
-                                <i class="fas fa-check"></i>
-                                 Confirm
-                                </button>
-                        </div>
-                        
-                    </div>
-            </form>
-           </div>
-    
-           
-    </div>
+            </div>
+        </div>
+
+        
+      
 </section>
 </div>

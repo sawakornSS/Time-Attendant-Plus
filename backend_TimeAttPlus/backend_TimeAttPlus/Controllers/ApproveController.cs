@@ -53,7 +53,7 @@ namespace backend_TimeAttPlus.Controllers
       }
 
     }
-    [HttpPost]
+    [HttpGet]
     [Route("GetApproveflow")]
     public List<Approve> GetApproveflow(string EmpNo)
     {
@@ -62,24 +62,35 @@ namespace backend_TimeAttPlus.Controllers
       da.SelectCommand.Parameters.AddWithValue("@EmployeeNo", EmpNo);
       DataTable dt = new DataTable();
       da.Fill(dt);
-      Approve app = new Approve();
+      
+      Console.WriteLine(EmpNo);
+      Console.WriteLine(dt.Rows[0]["ApproverNo"].ToString());
+      Console.WriteLine(EmpNo);
+      List<Approve> listApprove = new List<Approve>();
       if (dt.Rows.Count > 0)
       {
-          app.AppStateNo = dt.Rows[0]["AppStateNo"].ToString();
-          app.ApproverNo = dt.Rows[0]["ApproveNo"].ToString();
-          app.ApproverName = dt.Rows[0]["ApproverName"].ToString();
-          app.PositionAlias = dt.Rows[0]["PositionAlias"].ToString();
-          app.AppStateCode = dt.Rows[0]["AppStateCode"].ToString();
-          app.Description = dt.Rows[0]["Description"].ToString();
-          app.AppTypeCode = dt.Rows[0]["AppTypeCode"].ToString();
-          app.OrgPrjCode = dt.Rows[0]["OrgPrjCode"].ToString();
-                 
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+          Approve app = new Approve();
+          app.AppStateNo = dt.Rows[i]["AppStateNo"].ToString();
+          app.ApproverNo = dt.Rows[i]["ApproverNo"].ToString();
+          app.ApproverName = dt.Rows[i]["ApproverName"].ToString();
+          app.PositionAlias = dt.Rows[i]["PositionAlias"].ToString();
+          app.AppStateCode = dt.Rows[i]["AppStateCode"].ToString();
+          app.Description = dt.Rows[i]["Description"].ToString();
+          app.AppTypeCode = dt.Rows[i]["AppTypeCode"].ToString();
+          app.OrgPrjCode = dt.Rows[i]["OrgPrjCode"].ToString();
+       
+          listApprove.Add(app);
+ 
+        }
+       
       }
-      if(EmpNo != null)
+   
+      if (listApprove.Count > 0)
       {
-
-        return null;
-
+       
+        return listApprove;
       }
       else
       {
@@ -87,6 +98,7 @@ namespace backend_TimeAttPlus.Controllers
       }
 
     }
+    
 
   }
 

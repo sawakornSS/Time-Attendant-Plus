@@ -26,7 +26,6 @@
     "angular-datatables": "^14.0.0",
     "angular-daterangepicker": "^0.2.3-alpha1",
     "bootstrap": "^5.2.0",
-    "datatables.net": "^1.12.1",
     "datatables.net-dt": "^1.12.1",
     "datatables.net-responsive": "^2.3.0",
     "datatables.net-responsive-dt": "^2.3.0",

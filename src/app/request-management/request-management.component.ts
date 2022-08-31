@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Request } from '../models/request.model';
 import { RequestService } from '../services/request.service';
 import * as moment from 'moment';
+import { approveflow } from '../models/approving.model';
+import { ApproveService } from '../services/approve.service';
 
 @Component({
   selector: 'app-request-management',
@@ -10,9 +12,9 @@ import * as moment from 'moment';
 })
 export class RequestManagementComponent implements OnInit {
 
-
   requests : Request[] = [];
-  constructor(private requestservice:RequestService) { }
+  approveflow : approveflow[] = [];
+  constructor(private requestservice:RequestService,private approveservice:ApproveService) { }
   
   ngOnInit(): void {
     
@@ -28,6 +30,16 @@ export class RequestManagementComponent implements OnInit {
         console.log(response);
       }
     })
+    this.approveservice.GetApproveflow()
+    .subscribe({
+      next: (approveflow) => {
+        this.approveflow = approveflow;
+        console.log(approveflow)
+      },
+      error: (response) =>{
+        console.log(response);
+      }
+    });
     
   }
 

@@ -91,38 +91,7 @@
                       </td>
                    
                     </tr>
-                    <!-- <tr class="even">
-                      <td class="dtr-control sorting_1" tabindex="0">AL</td>
-                      <td>22/8/2022</td>
-                      <td>23/8/2022</td>
-                      <td>1.8</td>
-                      <td>A</td>
-                      <td>
-                        <div class="col-md-6">
-                          <button type="button" class="btn btn-block btn-secondary">
-                            <i class="fas fa-search"></i>
-                          </button>    
-                        </div>
-                                             
-                    </td>
-                    </tr>
-                    <tr class="odd">
-                      <td class="dtr-control sorting_1" tabindex="0">TC</td>
-                      <td>22/8/2022</td>
-                      <td>23/8/2022</td>
-                      <td>1.8</td>
-                      <td>A</td>
-                      <td>
-                        <div class="col-md-6">
-                          <button type="button" class="btn btn-block btn-secondary">
-                            <i class="fas fa-search"></i>
-                          </button>    
-                        </div>
-                                             
-                    </td>
-
-
-                    </tr> -->
+                    
                   </tbody>
                   <tfoot>
 
@@ -222,39 +191,22 @@
                         </tr>
                       </thead>
                       <tbody>
-    
-                        <tr class="odd">
-                          <td class="dtr-control sorting_1" tabindex="0">MG</td>
-                          <td>Group manager</td>
-                          <td>Mr. Kitti Navapanvanit</td>
-                          <td>ONES</td>
-                          <td>AP</td>
+                       
+                        <tr class="odd" *ngFor="let approveflows of approveflow ">
+                          <td class="dtr-control sorting_1" tabindex="0">{{approveflows.appStateCode}}</td>
+                          <td>{{approveflows.description}}</td>
+                          <td>{{approveflows.approverName}}</td>
+                          <td>{{approveflows.orgPrjCode}}</td>
+                          <td>{{approveflows.appTypeCode}}</td>
                           <td>
                             <div class="col-md-6">
-                              <button type="button" class="btn btn-block btn-danger">
-                                <i class="fas fa-times"></i>
-                              </button>    
+                              <button _ngcontent-xyo-c146="" type="button" class="btn btn-danger btn-m"><i _ngcontent-xyo-c146="" class="fas fa-times"></i></button>
                             </div>
                             
                                                  
                         </td>
                         </tr>
-                        <tr class="odd">
-                          <td class="dtr-control sorting_1" tabindex="0">HR</td>
-                          <td>HR Approving</td>
-                          <td>Miss Salisanon Suthaitrakulsom</td>
-                          <td>HR-HRA</td>
-                          <td>AP</td>
-                          <td>
-                            <div class="col-md-6">
-                              <button type="button" class="btn btn-block btn-danger">
-                                <i class="fas fa-times"></i>
-                              </button>    
-                            </div>
-                            
-                                                 
-                        </td>
-                        </tr>
+                        
                       
                       </tbody>
                       <tfoot>
