@@ -1,10 +1,11 @@
 
 export interface ImportTime{
-    importID : number;
-    uploadBy : string;
-    uploadDate : string;
-    currentLeaveState : number;
-    leaveStatus : string;
+    importID? : number;
+    uploadBy? : string;
+    uploadDate? : string;
+    currentLeaveState? : number;
+    leaveStatus? : string;
+    data?: Array<ImportTimeDetail>;
     
 }
 export interface ImportTimeDetail{
