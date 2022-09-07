@@ -146,6 +146,10 @@ export class ImportTimeAttendantComponent implements OnInit {
     this.data = this.tempData;
     this.ValidateDataExcel(false);
    
+    let CSS_Preview_Table : any = document.getElementById('table_Preview_data'); // get ID table
+
+    CSS_Preview_Table.style.visibility = 'visible'; // set css style copplapse -> visible
+
     console.log("==== Preview Data Click data(show first)->dataImport(show second) ====");
     console.log(this.data);
     console.log(this.dataImport);
@@ -153,10 +157,14 @@ export class ImportTimeAttendantComponent implements OnInit {
   }
 
   reset(evt:any){
+    let CSS_Preview_Table : any = document.getElementById('table_Preview_data'); // get ID table
+
+    CSS_Preview_Table.style.visibility = 'collapse'; // set css style visible -> copplapse
     // console.log("----------- Cancel -------------")
     this.fileUploadElement.nativeElement.labels[0].innerText = "Choose file";
     this.data = [];
     this.tempData = [];
+    this.dataImport = [];
 
     window.scroll({ 
       top: 0, 
@@ -245,10 +253,10 @@ export class ImportTimeAttendantComponent implements OnInit {
       else {
         _rowds.employeeID = row[this.idx_Column_EmpID];
       }
-      // condition check column Employee ID
-      if (row[this.idx_Column_EmpID] == undefined
-        || row[this.idx_Column_EmpID] == null
-        || row[this.idx_Column_EmpID] == "")
+      // condition check column Employee Fullname
+      if (row[this.idx_Column_employeeFullName] == undefined
+        || row[this.idx_Column_employeeFullName] == null
+        || row[this.idx_Column_employeeFullName] == "")
       {
         _rowds.employeeFullName = "";
         _rowds.employeeFullName_ErrorMsg = "Employee Name is required.";
@@ -323,19 +331,9 @@ export class ImportTimeAttendantComponent implements OnInit {
       else {
         _rowds.siteStopTime = row[this.idx_Column_siteStopTime];
       }
-      // condition check column projectName
-      if (row[this.idx_Column_projectName] == undefined
-        || row[this.idx_Column_projectName] == null
-        || row[this.idx_Column_projectName] == "")
-      {
-        _rowds.projectName = "";
-        _rowds.projectName_ErrorMsg = "projectName ID is required.";
-        _rowds.isError = true;
-        isValidatePass = false;
-      }
-      else {
-        _rowds.projectName = row[this.idx_Column_projectName];
-      }
+      // projectName
+      _rowds.projectName = row[this.idx_Column_projectName];
+      
 
       this.dataImport.push(_rowds);
 

@@ -27,7 +27,7 @@
                         <div id="Preview_wrapper" class="Preview_wrapper dt-bootstrap4 mt-2">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="Preview" class="table table-bordered table-striped dataTable dtr-inline preview-table font-md"
+                                    <table id="table_Preview_data" class="table table-bordered table-striped dataTable dtr-inline preview-table font-md"
                                         aria-describedby="Preview_info">
                                         <thead>
                                             <tr>
@@ -59,25 +59,25 @@
                                                 <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.employeeID_ErrorMsg">
                                                     {{row.employeeID}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.employeeFullName_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.employeeFullName_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.employeeFullName_ErrorMsg">
                                                     {{row.employeeFullName}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workDate_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.workDate_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workDate_ErrorMsg">
                                                     {{row.workDate}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStart_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.workOnSiteStart_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStart_ErrorMsg">
                                                     {{row.workOnSiteStart}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStop_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.workOnSiteStop_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStop_ErrorMsg">
                                                     {{row.workOnSiteStop}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.siteStartTime_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.siteStartTime_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.siteStartTime_ErrorMsg">
                                                     {{row.siteStartTime}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.siteStopTime_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.siteStopTime_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.siteStopTime_ErrorMsg">
                                                     {{row.siteStopTime}}
                                                 </td>
-                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.projectName_ErrorMsg">
+                                                <td [ngStyle]="{'background-color' : row.projectName_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.projectName_ErrorMsg">
                                                     {{row.projectName}}
                                                 </td>
                                               
