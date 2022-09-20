@@ -63,7 +63,7 @@
                                                     {{row.employeeFullName}}
                                                 </td>
                                                 <td [ngStyle]="{'background-color' : row.workDate_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workDate_ErrorMsg">
-                                                    {{row.workDate}}
+                                                    {{row.workDate | date: 'dd/MM/yyyy' }}
                                                 </td>
                                                 <td [ngStyle]="{'background-color' : row.workOnSiteStart_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStart_ErrorMsg">
                                                     {{row.workOnSiteStart}}

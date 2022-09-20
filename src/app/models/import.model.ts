@@ -9,10 +9,10 @@ export interface ImportTime{
     
 }
 export interface ImportTimeDetail{
-    detailID : BigInt;
-    importID : BigInt;
+    detailID? : BigInt;
+    importID? : BigInt;
     employeeName : String;
-    workDate : String;
+    workDate? : Date;
     workOnSiteStart : String;
     workOnSiteStop : String;
     siteStartTime : String;

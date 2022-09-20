@@ -1,8 +1,9 @@
 export class ImportTimeAttendantClass {
+  Push: any;
     constructor() { 
         this.employeeID = "";
         this.employeeFullName = "";
-        this.workDate = "";
+        this.workDate = undefined;
         this.workOnSiteStart = "";
         this.workOnSiteStop = "";
         this.siteStartTime = "";
@@ -21,7 +22,7 @@ export class ImportTimeAttendantClass {
      }
      employeeID : String;
      employeeFullName : String;
-     workDate : String;
+     workDate? : Date;
      workOnSiteStart : String;
      workOnSiteStop : String;
      siteStartTime : String;

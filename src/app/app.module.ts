@@ -20,6 +20,8 @@ import { AddApproveFlowComponent } from './add-approve-flow/add-approve-flow.com
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from '../material-module';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import {MaterialModule} from '../material-module';
     BrowserAnimationsModule,
     FormsModule,
     DataTablesModule,
-    MaterialModule
+    MaterialModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

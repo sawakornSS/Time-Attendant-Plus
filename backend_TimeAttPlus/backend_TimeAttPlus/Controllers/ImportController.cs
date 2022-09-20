@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Xml.Serialization;
+using System.IO;
+using System.Text;
 
 namespace backend_TimeAttPlus.Controllers
 {
@@ -65,7 +68,24 @@ namespace backend_TimeAttPlus.Controllers
     [Route("AddImportTime")]
     public string AddImportTime(ImportTime imt)
     {
-      Console.WriteLine("123");
+
+      string template_xml = "<row EmployeeID='{0}' EmployeeName='{1}' WorkDate='{2:yyyy-MM-dd}' TimeIn='{3:HH:mm}' TimeOut='{4:HH:mm}' SiteStart='{5:HH:mm}' SiteStop='{6:HH:mm}' ProjectName='{7}'/>";
+      StringBuilder data_xml = new StringBuilder();
+      for (int i =0 ; i < imt.data.Count ; i++)
+      {
+        ImportTimeDetail rowexcel = imt.data[i];
+
+        data_xml.AppendFormat(template_xml, rowexcel.EmployeeID, rowexcel.EmployeeName,
+                  rowexcel.WorkDate, rowexcel.WorkOnSiteStart, rowexcel.WorkOnSiteStop,
+                  rowexcel.SiteStartTime, rowexcel.SiteStopTime, rowexcel.ProjectName);
+      }
+
+      //data_xml = '<Root>' + data_xml + '</Root>';
+      data_xml.Insert(0, "<Root>");
+      data_xml.Append("</Root>");
+      
+      Console.WriteLine(data_xml);
+
       string msg = string.Empty;
       try
       {

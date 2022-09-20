@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef,Input , NgModule} from '@angular/core';
 import * as XLSX from 'xlsx';
+import * as moment from 'moment';
 import { ImportService} from '../services/import.service';
 import { ImportTime, ImportTimeDetail } from '../models/import.model';
 import { MatPaginator } from '@angular/material/paginator';
@@ -7,10 +8,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
 import {SelectionModel} from '@angular/cdk/collections';
-import { from } from 'rxjs';
+import { from, timeout } from 'rxjs';
 
 import {ImportTimeAttendantClass} from './import-time-attendant';
 import fa from '@mobiscroll/angular/dist/js/i18n/fa';
+import { ToastrService } from 'ngx-toastr';
+
+// let moment = require('moment');
 
 @Component({
   selector: 'app-import-time-attendant',
@@ -55,7 +59,8 @@ export class ImportTimeAttendantComponent implements OnInit {
   tempData: any;
   constructor(
     fileUploadElement: ElementRef ,
-    private importservice:ImportService
+    private importservice:ImportService,
+    private toastr: ToastrService
   ) { 
 
     this.fileUploadElement = fileUploadElement;
@@ -68,7 +73,6 @@ export class ImportTimeAttendantComponent implements OnInit {
     uploadDate : "",
     currentLeaveState : 4,
     leaveStatus : "WT",
-    
   };
   // add preview Data
 
@@ -150,10 +154,10 @@ export class ImportTimeAttendantComponent implements OnInit {
 
     CSS_Preview_Table.style.visibility = 'visible'; // set css style copplapse -> visible
 
+    if (this.ValidateDataExcel(true) == false) return;
     console.log("==== Preview Data Click data(show first)->dataImport(show second) ====");
     console.log(this.data);
     console.log(this.dataImport);
-
   }
 
   reset(evt:any){
@@ -176,39 +180,50 @@ export class ImportTimeAttendantComponent implements OnInit {
   AddImport(evt: any){
     alert("Save Progress");
     console.log(this.tempData);
-    // this.AddLeaveRequest.leaveDtTmFrom = this.AddLeaveRequest.RangeDateTime[0]
-    // this.AddLeaveRequest.leaveDtTmTo = this.AddLeaveRequest.RangeDateTime[1]
 
     if (this.ValidateDataExcel(true) == false) return;
 
     var dataListForImport : Array<ImportTimeDetail> = new Array<ImportTimeDetail>();
-    var importdata : ImportTime;
+    var importdata = {};
+    // var importdata : ImportTime;
 
 
     // this.dataImport => dataListForImport     For loop add data 
 
-    // importdata = ImportTime{ importID : null,
-    //     uploadBy : null,
-    //     uploadDate : null,
-    //     currentLeaveState : null,
-    //     leaveStatus : null,
-    //     data:  dataListForImport });
+    for (let i = 0; i < this.dataImport.length; i++) {
+      var current_index = this.dataImport[i];
+      // console.log(current_index);
+      var temp_importdata : ImportTimeDetail = {
+                              detailID : undefined,
+                              importID : undefined,
+                              employeeName : current_index["employeeFullName"],
+                              workDate : (current_index["workDate"]),
+                              workOnSiteStart : current_index["workOnSiteStart"],
+                              workOnSiteStop : current_index["workOnSiteStop"],
+                              siteStartTime : current_index["siteStartTime"],
+                              siteStopTime : current_index["siteStopTime"],
+                              projectName : current_index["projectName"]
+                            };
+      dataListForImport.push(temp_importdata);
+    }
+    console.log("---------------------")
+    console.log(dataListForImport)
+      importdata = { 
+        importID : null,
+        uploadBy : null,
+        uploadDate : null,
+        currentLeaveState : null,
+        leaveStatus : null,
+        data:  dataListForImport 
+      };
 
-    // let importdata = { importID : null,
-    //   uploadBy : null, 
-    //   uploadDate : null,
-    //   currentLeaveState : null,
-    //   leaveStatus : null,
-    //   data:  dataListForImport };
+    this.importservice.ServiceAddPreview(importdata)
+    .subscribe({
+      next: (request) =>{
+        console.log(request);
+      }
+    })
 
-    // this.importservice.ServiceAddPreview(importdata)
-    // .subscribe({
-    //   next: (request) =>{
-    //     console.log(request);
-    //   }
-    // })
-    
-    console.log(this.AddImportTime);
     // this.router.navigateByUrl('/request-management');
     //console.log(this.AddLeaveRequest);
   }
@@ -249,6 +264,7 @@ export class ImportTimeAttendantComponent implements OnInit {
         _rowds.employeeID_ErrorMsg = "Employee ID is required.";
         _rowds.isError = true;
         isValidatePass = false;
+        
       }
       else {
         _rowds.employeeID = row[this.idx_Column_EmpID];
@@ -271,13 +287,13 @@ export class ImportTimeAttendantComponent implements OnInit {
         || row[this.idx_Column_WorkDate] == null
         || row[this.idx_Column_WorkDate] == "")
       {
-        _rowds.workDate = "";
+        _rowds.workDate = undefined;
         _rowds.workDate_ErrorMsg = "Date is required.";
         _rowds.isError = true;
         isValidatePass = false;
       }
       else {
-        _rowds.workDate = row[this.idx_Column_WorkDate];
+        _rowds.workDate = moment(row[this.idx_Column_WorkDate]).toDate();
       }
       // condition check column WorkOnSiteStart
       if (row[this.idx_Column_workOnSiteStart] == undefined
@@ -336,12 +352,15 @@ export class ImportTimeAttendantComponent implements OnInit {
       
 
       this.dataImport.push(_rowds);
-
  
     }
 
     if (IsAlertError && !isValidatePass) {
-      alert("ข้อมูลภายยังไม่ถูกต้องกรุณาตรวจสอบข้อมูลภายในไฟล์อีกรั้ง");
+      this.toastr.error('Please check the information again.', '',{
+        timeOut: 2500,
+        extendedTimeOut: 1000,
+      });
+      // alert("ข้อมูลภายยังไม่ถูกต้องกรุณาตรวจสอบข้อมูลภายในไฟล์อีกรั้ง");
     }
 
     return isValidatePass;
