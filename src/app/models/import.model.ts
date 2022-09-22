@@ -1,17 +1,18 @@
 
 export interface ImportTime{
-    importID : number;
-    uploadBy : string;
-    uploadDate : string;
-    currentLeaveState : number;
-    leaveStatus : string;
+    importID? : number;
+    uploadBy? : string;
+    uploadDate? : string;
+    currentLeaveState? : number;
+    leaveStatus? : string;
+    data?: Array<ImportTimeDetail>;
     
 }
 export interface ImportTimeDetail{
-    detailID : BigInt;
-    importID : BigInt;
+    detailID? : BigInt;
+    importID? : BigInt;
     employeeName : String;
-    workDate : String;
+    workDate? : Date;
     workOnSiteStart : String;
     workOnSiteStop : String;
     siteStartTime : String;

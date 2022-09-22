@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Xml.Serialization;
+using System.IO;
+using System.Text;
 
 namespace backend_TimeAttPlus.Controllers
 {
@@ -59,11 +62,98 @@ namespace backend_TimeAttPlus.Controllers
       {
         return null;
       }
-
-
-
     }//getall
 
+    [HttpPost]
+    [Route("AddImportTime")]
+    public string AddImportTime(ImportTime imt)
+    {
+
+      string template_xml = "<row EmployeeID='{0}' EmployeeName='{1}' WorkDate='{2:yyyy-MM-dd}' TimeIn='{3:HH:mm}' TimeOut='{4:HH:mm}' SiteStart='{5:HH:mm}' SiteStop='{6:HH:mm}' ProjectName='{7}'/>";
+      StringBuilder data_xml = new StringBuilder();
+      for (int i =0 ; i < imt.data.Count ; i++)
+      {
+        ImportTimeDetail rowexcel = imt.data[i];
+
+        data_xml.AppendFormat(template_xml, rowexcel.EmployeeID, rowexcel.EmployeeName,
+                  rowexcel.WorkDate, rowexcel.WorkOnSiteStart, rowexcel.WorkOnSiteStop,
+                  rowexcel.SiteStartTime, rowexcel.SiteStopTime, rowexcel.ProjectName);
+      }
+
+      //data_xml = '<Root>' + data_xml + '</Root>';
+      data_xml.Insert(0, "<Root>");
+      data_xml.Append("</Root>");
+      
+      Console.WriteLine(data_xml.ToString());
+
+      string msg = string.Empty;
+
+      try
+      {
+        Console.WriteLine("123");
+        SqlCommand com = new SqlCommand("sp_AddImportTime", con);
+        com.CommandType = CommandType.StoredProcedure;
+
+        com.Parameters.AddWithValue("@xml", data_xml.ToString());
+        com.Parameters.AddWithValue("@ImportID", imt.ImportID);
+        com.Parameters.AddWithValue("@UploadBy", "Sawakorn Test");
+        com.Parameters.AddWithValue("@UploadDate", imt.UploadDate);
+        com.Parameters.AddWithValue("@CurrentLeaveState", 4);
+        com.Parameters.AddWithValue("@LeaveStatus", "WT");
+    
+
+        con.Open();
+        com.ExecuteNonQuery();
+        con.Close();
+        msg = "SUCCESS";
+      }
+      catch (Exception ex)
+      {
+        msg = ex.Message;
+      }
+      finally
+      {
+        if (con.State == (ConnectionState.Open))
+        {
+          con.Close();
+        }
+      }
+      return msg;
+    }//POST
+
+    [HttpPost]
+    [Route("DeleteImportTimeByID")]
+    public string DeleteImportByID(ImportTime imt)
+    {
+      Console.WriteLine(imt);
+      string msg = string.Empty;
+
+      try
+      {
+        SqlCommand com = new SqlCommand("sp_DeleteImportTime", con);
+        com.CommandType = CommandType.StoredProcedure;
+
+        com.Parameters.AddWithValue("@ImportID", imt.ImportID);
+
+
+        con.Open();
+        com.ExecuteNonQuery();
+        con.Close();
+        msg = "SUCCESS";
+      }
+      catch (Exception ex)
+      {
+        msg = ex.Message;
+      }
+      finally
+      {
+        if (con.State == (ConnectionState.Open))
+        {
+          con.Close();
+        }
+      }
+      return msg;
+    }//POST
 
 
 

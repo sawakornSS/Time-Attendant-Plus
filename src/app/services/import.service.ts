@@ -19,10 +19,14 @@ export class ImportService {
   
   ServiceAddPreview(AddImportTime: ImportTime):Observable<ImportTime>{
    
-    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Requests/AddRequest',
-    AddImportTime);
+    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Import/AddImportTime', AddImportTime);
 
-    // return this.http.post<Request>(this.baseApiUrl + 'api/Requests/AddRequest',
-    // AddLeaveRequest);
   }
+  
+  DeleteImportByID(importID: ImportTime):Observable<ImportTime>{
+   
+    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Import/DeleteImportByID', importID);
+
+  }
+
 }

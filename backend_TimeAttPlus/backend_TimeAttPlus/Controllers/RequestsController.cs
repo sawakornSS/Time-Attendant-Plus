@@ -174,6 +174,7 @@ namespace backend_TimeAttPlus.Controllers
         SqlCommand com = new SqlCommand("sp_LeaveRecord_Insert", con);
         com.CommandType = CommandType.StoredProcedure;
 
+        com.Parameters.Clear();
 
         com.Parameters.AddWithValue("@EmployeeNo", req.EmployeeNo);
         com.Parameters.AddWithValue("@LeaveType", req.LeaveType);

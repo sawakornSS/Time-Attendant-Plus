@@ -12,7 +12,7 @@
                         <h5 class="font-weight-bold">Choose a file to upload.</h5>
                         <p>CSV, XLSX file types are allowed. <span class="text-danger">(1 File Per Upload)</span></p>
                         
-                        <form #from="ngForm" (ngSubmit)="AddImport()">
+                        <form #from="ngForm" (ngSubmit)="AddImport($event)">
                         <div class="input-group">
                             <!-- Upload Excel-->
                             <div class="custom-file">
@@ -27,15 +27,63 @@
                         <div id="Preview_wrapper" class="Preview_wrapper dt-bootstrap4 mt-2">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="Preview" class="table table-bordered table-striped dataTable dtr-inline preview-table"
+                                    <table id="table_Preview_data" class="table table-bordered table-striped dataTable dtr-inline preview-table font-md"
                                         aria-describedby="Preview_info">
                                         <thead>
-                                            <tr class="odd" *ngFor="let row of data">
-                                                <td *ngFor="let cell of row">
-                                                    {{cell}}
-                                                </td>
+                                            <tr>
+                                              <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Employee No.
+                                              </th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Browser: activate to sort column ascending">Name</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Platform(s): activate to sort column ascending">Date</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="Engine version: activate to sort column ascending">Time In</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Time Out</th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Site Start Time
+                                            </th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Site Stop Time
+                                            </th>
+                                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Project Name
+                                            </th>
+                                              
                                             </tr>
-                                        </thead>
+                                          </thead>
+                                        <ng-template ngFor let-row [ngForOf]="dataImport"> 
+                                            <tr>
+                                                <td [ngStyle]="{'background-color' : row.employeeID_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.employeeID_ErrorMsg">
+                                                    {{row.employeeID}}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.employeeFullName_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.employeeFullName_ErrorMsg">
+                                                    {{row.employeeFullName}}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.workDate_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workDate_ErrorMsg">
+                                                    {{row.workDate | date: 'dd/MM/yyyy' }}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.workOnSiteStart_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStart_ErrorMsg">
+                                                    {{row.workOnSiteStart}}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.workOnSiteStop_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.workOnSiteStop_ErrorMsg">
+                                                    {{row.workOnSiteStop}}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.siteStartTime_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.siteStartTime_ErrorMsg">
+                                                    {{row.siteStartTime}}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.siteStopTime_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.siteStopTime_ErrorMsg">
+                                                    {{row.siteStopTime}}
+                                                </td>
+                                                <td [ngStyle]="{'background-color' : row.projectName_ErrorMsg == '' ? '#FFFFFF' : '#FF0000'}" [title]="row.projectName_ErrorMsg">
+                                                    {{row.projectName}}
+                                                </td>
+                                              
+                                            </tr>
+                                           
+                                        </ng-template>
                                     </table>
                                     <div class="d-flex justify-content-center mt-3">
                                         <button type="reset" class="btn btn-default mr-2" (click)="reset($event)" >Cancel</button>
@@ -131,34 +179,9 @@
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                     <div class="col-sm-12">
-                        <mat-form-field>
-                            <mat-label>Filter</mat-label>
-                            <input matInput placeholder="Filter" (keyup)="Filterchange($event)">
-                        </mat-form-field>
-            
+                        
                         <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8 w-100">
 
-                            <!-- <ng-container matColumnDef="select">
-                                <th mat-header-cell *matHeaderCellDef>
-                                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
-                                                [checked]="selection.hasValue() && isAllSelected()"
-                                                [indeterminate]="selection.hasValue() && !isAllSelected()"
-                                                [aria-label]="checkboxLabel()">
-                                  </mat-checkbox>
-                                </th>
-                                <td mat-cell *matCellDef="let row">
-                                  <mat-checkbox (click)="$event.stopPropagation()"
-                                                (change)="$event ? selection.toggle(row) : null"
-                                                [checked]="selection.isSelected(row)"
-                                                [aria-label]="checkboxLabel(row)">
-                                  </mat-checkbox>
-                                </td>
-                              </ng-container> -->
-            
-                            <!--- Note that these columns can be defined in any order.
-                                  The actual rendered columns are set as a property on the row definition" -->
-                          
-                            <!-- Position Column -->
                             <ng-container matColumnDef="importID">
                               <th mat-sort-header  mat-header-cell *matHeaderCellDef> Request ID </th>
                               <td mat-cell *matCellDef="let element"> {{element.importID}} </td>
@@ -186,8 +209,8 @@
                                 <th mat-header-cell *matHeaderCellDef> Action</th>
                                 <td mat-cell *matCellDef="let element">
                                     <button (click)="AprooveData(element.importID)" type="button" class="btn btn-success btn-m"><i class="fas fa-check"></i></button>
-                                    <button type="button" class="btn btn-danger btn-m"><i class="fas fa-times"></i></button>
-                                    <button type="button" class="btn btn-secondary btn-m"><i class="fas fa-search"></i></button>
+                                    <button (click)="DeleteData(element.importID)" type="button" class="btn btn-danger btn-m"><i class="fas fa-times"></i></button>
+                                    <button (click)="DetailData(element.importID)" type="button" class="btn btn-secondary btn-m"><i class="fas fa-search"></i></button>
                                 </td>
                             </ng-container>
                             
