@@ -9,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 
 import {SelectionModel} from '@angular/cdk/collections';
 import { from, timeout } from 'rxjs';
+import { Router } from '@angular/router';
 
 import {ImportTimeAttendantClass} from './import-time-attendant';
 import fa from '@mobiscroll/angular/dist/js/i18n/fa';
@@ -60,6 +61,7 @@ export class ImportTimeAttendantComponent implements OnInit {
   constructor(
     fileUploadElement: ElementRef ,
     private importservice:ImportService,
+    private router:Router,
     private toastr: ToastrService
   ) { 
 
@@ -105,7 +107,24 @@ export class ImportTimeAttendantComponent implements OnInit {
     // console.log(row);
   }
   AprooveData(importID : any){
-    console.log(importID);
+    console.log("Aproove" + importID);
+  }
+
+  DeleteData(importID : any){
+    console.log("Delete : " + importID);
+
+    this.importservice.DeleteImportByID(importID)
+    .subscribe({
+      next: (request) =>{
+        console.log(request);
+      }
+    })
+    window.location.href = '/importTime';
+
+  }
+
+  DetailData(importID : any){
+    console.log("Detail" + importID);
   }
 
   onFileChang(evt: any){
@@ -178,7 +197,7 @@ export class ImportTimeAttendantComponent implements OnInit {
   }
 
   AddImport(evt: any){
-    alert("Save Progress");
+    // alert("Save Progress");
     console.log(this.tempData);
 
     if (this.ValidateDataExcel(true) == false) return;
@@ -223,9 +242,7 @@ export class ImportTimeAttendantComponent implements OnInit {
         console.log(request);
       }
     })
-
-    // this.router.navigateByUrl('/request-management');
-    //console.log(this.AddLeaveRequest);
+    // window.location.href = '/importTime';
   }
 
   formatTime(value : any){

@@ -84,28 +84,62 @@ namespace backend_TimeAttPlus.Controllers
       data_xml.Insert(0, "<Root>");
       data_xml.Append("</Root>");
       
-      Console.WriteLine(data_xml);
+      Console.WriteLine(data_xml.ToString());
 
       string msg = string.Empty;
+
       try
       {
         Console.WriteLine("123");
-        //SqlCommand com = new SqlCommand("sp_LeaveRecord_Insert", con);
-        //com.CommandType = CommandType.StoredProcedure;
+        SqlCommand com = new SqlCommand("sp_AddImportTime", con);
+        com.CommandType = CommandType.StoredProcedure;
+
+        com.Parameters.AddWithValue("@xml", data_xml.ToString());
+        com.Parameters.AddWithValue("@ImportID", imt.ImportID);
+        com.Parameters.AddWithValue("@UploadBy", "Sawakorn Test");
+        com.Parameters.AddWithValue("@UploadDate", imt.UploadDate);
+        com.Parameters.AddWithValue("@CurrentLeaveState", 4);
+        com.Parameters.AddWithValue("@LeaveStatus", "WT");
+    
+
+        con.Open();
+        com.ExecuteNonQuery();
+        con.Close();
+        msg = "SUCCESS";
+      }
+      catch (Exception ex)
+      {
+        msg = ex.Message;
+      }
+      finally
+      {
+        if (con.State == (ConnectionState.Open))
+        {
+          con.Close();
+        }
+      }
+      return msg;
+    }//POST
+
+    [HttpPost]
+    [Route("DeleteImportTimeByID")]
+    public string DeleteImportByID(ImportTime imt)
+    {
+      Console.WriteLine(imt);
+      string msg = string.Empty;
+
+      try
+      {
+        SqlCommand com = new SqlCommand("sp_DeleteImportTime", con);
+        com.CommandType = CommandType.StoredProcedure;
+
+        com.Parameters.AddWithValue("@ImportID", imt.ImportID);
 
 
-        //com.Parameters.AddWithValue("@EmployeeNo", req.EmployeeNo);
-        //com.Parameters.AddWithValue("@LeaveType", req.LeaveType);
-        //com.Parameters.AddWithValue("@Reason", req.Reason);
-        //com.Parameters.AddWithValue("@LeaveDtTmFrom", req.LeaveDtTmFrom);
-        //com.Parameters.AddWithValue("@LeaveDtTmTo", req.LeaveDtTmTo);
-        //com.Parameters.AddWithValue("@ProjectSiteCode", req.ProjectSiteCode);
-        //com.Parameters.AddWithValue("@ProjectSiteAllowance", req.ProjectSiteAllowance);
-
-        //con.Open();
-        //com.ExecuteNonQuery();
-        //con.Close();
-        //msg = "SUCCESS";
+        con.Open();
+        com.ExecuteNonQuery();
+        con.Close();
+        msg = "SUCCESS";
       }
       catch (Exception ex)
       {

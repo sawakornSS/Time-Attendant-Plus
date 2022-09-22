@@ -22,4 +22,11 @@ export class ImportService {
     return this.http.post<ImportTime>(this.baseApiUrl + 'api/Import/AddImportTime', AddImportTime);
 
   }
+  
+  DeleteImportByID(importID: ImportTime):Observable<ImportTime>{
+   
+    return this.http.post<ImportTime>(this.baseApiUrl + 'api/Import/DeleteImportByID', importID);
+
+  }
+
 }
