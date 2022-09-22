@@ -26,14 +26,15 @@ namespace backend_TimeAttPlus.Controllers
     }
     [HttpGet]
     [Route("GetAllRequest")]
-    public List<Request> GetAllRequest()
+    public List<Request> GetAllRequest(string EmpNo)
     {
-      SqlDataAdapter adapter = new SqlDataAdapter("sp_LeaveRecord_LoadAllColumn", con);
+      SqlDataAdapter da = new SqlDataAdapter("sp_LeaveRecord_Load", con);
+      da.SelectCommand.CommandType = CommandType.StoredProcedure;
+      da.SelectCommand.Parameters.AddWithValue("@EmployeeNo", EmpNo);
+      
       DataTable dt = new DataTable();
 
-
-
-      adapter.Fill(dt);
+      da.Fill(dt);
       List<Request> lstreq = new List<Request>();
       if (dt.Rows.Count > 0)
       {
@@ -49,9 +50,13 @@ namespace backend_TimeAttPlus.Controllers
           request.LeaveDtTmFrom = Convert.ToDateTime(dt.Rows[i]["LeaveDtTmFrom"]);
           request.LeaveDtTmTo = Convert.ToDateTime(dt.Rows[i]["LeaveDtTmTo"]);
           request.LeaveStatus = dt.Rows[i]["LeaveStatus"].ToString();
-          request.LeaveDay = Convert.ToInt32(dt.Rows[i]["LeaveDay"]);
-          request.LeaveHour = Convert.ToInt32(dt.Rows[i]["LeaveHour"]);
-          request.LeaveMin = Convert.ToInt32(dt.Rows[i]["LeaveMin"]);
+          request.SiteName = dt.Rows[i]["SiteName"].ToString();
+          request.EmployeeName = dt.Rows[i]["EmployeeName"].ToString();
+          request.TotalDays = dt.Rows[i]["TotalDays"].ToString();
+       
+          //  request.LeaveDay = Convert.ToInt32(dt.Rows[i]["LeaveDay"]);
+          //  request.LeaveHour = Convert.ToInt32(dt.Rows[i]["LeaveHour"]);
+          //  request.LeaveMin = Convert.ToInt32(dt.Rows[i]["LeaveMin"]);
 
           lstreq.Add(request);
         }
@@ -69,16 +74,57 @@ namespace backend_TimeAttPlus.Controllers
 
     }//getall
 
-    // GET: Requests
-    // [HttpGet]
-    //    public async Task<IActionResult> GetAllLeaveRecord()
-    //    {
+    [HttpGet]
+    [Route("GetRequestApprover")]
+    public List<Request> GetRequestApprover(string Approver, string LeaveStatus)
+    {
+      SqlDataAdapter da = new SqlDataAdapter("sp_LeaveRecord_Load", con);
+      da.SelectCommand.CommandType = CommandType.StoredProcedure;
+      da.SelectCommand.Parameters.AddWithValue("@ApproverNo", Approver);
+      da.SelectCommand.Parameters.AddWithValue("@LeaveStatus", LeaveStatus);
+      DataTable dt = new DataTable();
 
-    //     var request =  await _requestDbcontext.tbl_LeaveRecords.ToListAsync();
-    //        return Ok(request);
-    //    }
 
-    // GET: Leavetype
+
+      da.Fill(dt);
+      List<Request> lstreq = new List<Request>();
+      if (dt.Rows.Count > 0)
+      {
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+          Request request = new Request();
+
+
+          request.LeaveNo = dt.Rows[i]["LeaveNo"].ToString();
+          request.LeaveType = dt.Rows[i]["LeaveType"].ToString();
+          request.EmployeeNo = dt.Rows[i]["EmployeeNo"].ToString();
+          request.Reason = dt.Rows[i]["Reason"].ToString();
+          request.LeaveDtTmFrom = Convert.ToDateTime(dt.Rows[i]["LeaveDtTmFrom"]);
+          request.LeaveDtTmTo = Convert.ToDateTime(dt.Rows[i]["LeaveDtTmTo"]);
+          request.LeaveStatus = dt.Rows[i]["LeaveStatus"].ToString();
+          request.SiteName = dt.Rows[i]["SiteName"].ToString();
+          request.EmployeeName = dt.Rows[i]["EmployeeName"].ToString();
+          //  request.LeaveDay = Convert.ToInt32(dt.Rows[i]["LeaveDay"]);
+          //  request.LeaveHour = Convert.ToInt32(dt.Rows[i]["LeaveHour"]);
+          //  request.LeaveMin = Convert.ToInt32(dt.Rows[i]["LeaveMin"]);
+
+          lstreq.Add(request);
+        }
+      }
+      if (lstreq.Count > 0)
+      {
+        return lstreq;
+      }
+      else
+      {
+        return null;
+      }
+
+
+
+    }//GetRequestApprover
+
+    
     [HttpGet]
     [Route("GetLeaveType")]
     public async Task<IActionResult> GetAllTypeLeave()
@@ -87,16 +133,36 @@ namespace backend_TimeAttPlus.Controllers
       return Ok(typeleave);
     }
 
-   // [HttpPost]
-   // [Route("AddRequest")]
-   // public async Task<IActionResult> AddLeave([FromBody] Request LeaveRequest)
-   // {
+    [HttpGet]
+    [Route("GetLeaveTypeEmp")]
+    public List<TypeLeave> GetTypeLeaveEmp(string EmpNo)
+    {
+      SqlDataAdapter da = new SqlDataAdapter("sp_LeaveType_LoadLeaveTypeCollection", con);
+      da.SelectCommand.CommandType = CommandType.StoredProcedure;
+      da.SelectCommand.Parameters.AddWithValue("@EmployeeNo", EmpNo);
+      DataTable dt = new DataTable();
+      da.Fill(dt);
+      List<TypeLeave> lstreq = new List<TypeLeave>();
+      if (dt.Rows.Count > 0)
+      {
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+          TypeLeave Typeleave = new TypeLeave();
+          Typeleave.LeaveType = dt.Rows[i]["LeaveType"].ToString();
+          Typeleave.Description = dt.Rows[i]["Description"].ToString();
+          lstreq.Add(Typeleave);
+        }
+      }
+      if (lstreq.Count > 0)
+      {
+        return lstreq;
+      }
+      else
+      {
+        return null;
+      }
 
-   //  await _requestDbcontext.tbl_LeaveRecords.AddAsync(LeaveRequest);
-   //   await _requestDbcontext.SaveChangesAsync();
-
-   //   return Ok(LeaveRequest);
-   // }
+    }//GetTypeLeaveEmp
 
     [HttpPost]
     [Route("AddRequest")]
@@ -135,7 +201,65 @@ namespace backend_TimeAttPlus.Controllers
       return msg;
     }
 
+    [HttpGet]
+    [Route("GetEmployeeSite")]
+    public List<Request> GetEmployeeSite(string StaffID)
+    {
+      SqlDataAdapter da = new SqlDataAdapter("sp_Request_LoadEmployeeSite_Combo", con);
+      da.SelectCommand.CommandType = CommandType.StoredProcedure;
+      da.SelectCommand.Parameters.AddWithValue("@StaffID", StaffID);
+      DataTable dt = new DataTable();
+      da.Fill(dt);
+      List<Request> lstreq = new List<Request>();
+      if (dt.Rows.Count > 0)
+      {
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+          Request request = new Request();
+          request.SiteMasterCode = dt.Rows[i]["SiteMasterCode"].ToString();
+          request.SiteMasterDescription = dt.Rows[i]["SiteMasterDescription"].ToString();
+          lstreq.Add(request);
+        }
+      }
+      if (lstreq.Count > 0)
+      {
+        return lstreq;
+      }
+      else
+      {
+        return null;
+      }
 
+    }//GetEmployeeSite
+
+    //PUT
+
+    [HttpPut]
+    [Route("UpdateStatus")]
+    public String UpdateStatusCancel(string LeaveNo)
+    {
+      string msg = "";
+      if(LeaveNo != null)
+      {
+        SqlCommand da = new SqlCommand("sp_LeaveRecord_Cancel", con);
+        da.CommandType = CommandType.StoredProcedure;
+        da.Parameters.AddWithValue("@LeaveNo", LeaveNo);
+        con.Open();
+        int i = da.ExecuteNonQuery();
+        con.Close();
+        if(i > 0)
+        {
+          msg = "data has been updated";
+        }
+        else
+        {
+          msg = "error";
+        }
+      }
+      return msg;
+     
+
+    }//updatestatus
   }
     
 }

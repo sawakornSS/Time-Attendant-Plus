@@ -63,9 +63,7 @@ namespace backend_TimeAttPlus.Controllers
       DataTable dt = new DataTable();
       da.Fill(dt);
       
-      Console.WriteLine(EmpNo);
-      Console.WriteLine(dt.Rows[0]["ApproverNo"].ToString());
-      Console.WriteLine(EmpNo);
+     
       List<Approve> listApprove = new List<Approve>();
       if (dt.Rows.Count > 0)
       {

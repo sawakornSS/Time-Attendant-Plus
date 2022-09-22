@@ -28,6 +28,17 @@ namespace backend_TimeAttPlus.Models
     public int? ProjectSiteCode { get; set; } = 0;
 
     public int? ProjectSiteAllowance { get; set; } = 0;
+    public string SiteName { get; set; }
+    public string EmployeeName { get; set; }
+    public string ApproverNo { get; set; }
+
+    public string StaffID { get; set; }
+
+    public string SiteMasterCode { get; set; }
+    public string SiteMasterDescription { get; set; }
+    public string TotalDays { get; set; }
+
+    
   }
     public class TypeLeave
     {

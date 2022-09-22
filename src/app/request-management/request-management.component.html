@@ -1,7 +1,6 @@
-
 <div class="content-wrapper">
 
-  
+
 
 
   <section class="content mt-4">
@@ -13,225 +12,206 @@
             <i class="fas fa-calendar mr-1"></i>
             Request Management
           </h3>
-          <!-- <div class="card-tools">
-              <ul class="nav nav-pills ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                </li>
-              </ul>
-            </div> -->
 
         </div>
         <div class="mb-2"></div>
         <div class="mb-2">
           <div class="float-right">
             <div class="col-sm-12">
-              
+
               <button class="btn btn-block btn-primary" routerLink="/add-request">
                 <i class="fas fa-plus"></i>
                 Create
               </button>
             </div>
           </div>
-        
-        </div>
-        
-        <div class="card-body">
-          
-         
-          <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-            <div class="row">
-              <div class="col-sm-12 col-md-6"></div>
-              <div class="col-sm-12 col-md-6"></div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <table datatable  *ngIf="requests" id="example2" class=" row-border hover  table table-hover dataTable dtr-inline"
-                  aria-describedby="example2_info">
-                  <thead>
-                    <tr>
-                      <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                        aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Type
-                      </th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                        aria-label="Browser: activate to sort column ascending">Date From</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                        aria-label="Platform(s): activate to sort column ascending">Date To</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                        aria-label="Engine version: activate to sort column ascending">Total Date</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                        aria-label="CSS grade: activate to sort column ascending">Status</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">
-                        Ativity</th>
-                    </tr>
-                  </thead>
-                  <tbody>
 
-                    <tr class="odd" *ngFor="let request of requests">
-                      <td class="dtr-control sorting_1" tabindex="0">{{request.leaveType}}</td>
-                      <td>{{request.leaveDtTmFrom | date: 'dd/MM/yyyy'}}</td>
-                      <td>{{request.leaveDtTmTo| date: 'dd/MM/yyyy'}}</td>
-                      <!-- <td>{{request.leaveStatus}}</td> -->
-                      <td>{{request.leaveDay}}/{{request.leaveHour}}/{{request.leaveMin}}</td>
-                      
-                      <td><span class="badge bg-warning">Waitting</span></td>
-                      <td _ngcontent-mem-c54="">
-                        <button _ngcontent-mem-c54="" type="button" class="btn btn-success btn-m">
-                          <i _ngcontent-mem-c54="" class="fas fa-check"></i>
-                        </button>
-                      
+        </div>
+        <form>
+          <div class="card-body">
+
+
+            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+              <div class="row">
+                <div class="col-sm-12 col-md-6"></div>
+                <div class="col-sm-12 col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table datatable *ngIf="requests" id="example2"
+                    class=" row-border hover  table table-hover dataTable dtr-inline" aria-describedby="example2_info">
+                    <thead>
+                      <tr>
+                        <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Type
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="Browser: activate to sort column ascending">Date From</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="Platform(s): activate to sort column ascending">Date To</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="Engine version: activate to sort column ascending">Total Date</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="CSS grade: activate to sort column ascending">Status</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">
+                          Ativity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr class="odd" *ngFor="let request of requests">
+                        <td class="dtr-control sorting_1" tabindex="0">{{request.leaveType}}</td>
+                        <td>{{request.leaveDtTmFrom | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{request.leaveDtTmTo| date: 'dd/MM/yyyy'}}</td>
+                        <td>{{request.totalDays}}</td>
+                       <!-- <td>{{request.leaveDay}}/{{request.leaveHour}}/{{request.leaveMin}}</td> -->
+                        <td *ngIf="request.leaveStatus === 'WT'; ">
+                          <span class="badge bg-warning">Waitting</span>
+                        </td>
+                        <td *ngIf="request.leaveStatus === 'CL'; ">
+                          <span class="badge bg-danger">Cancle</span>
+                        </td>
+                        <td *ngIf="request.leaveStatus === 'FN'; ">
+                          <span class="badge bg-success">Approved</span>
+                        </td>
+                        <td *ngIf="request.leaveStatus === 'CLHR'; ">
+                          <span class="badge bg-danger">Cancle by HR</span>
+                        </td>
+                        <td *ngIf="request.leaveStatus === 'NA'; ">
+                          <span class="badge bg-danger">Reject</span>
+                        </td>
+                       
+                        
+                        
+                        
+                        <td _ngcontent-mem-c54="">
+                          <button type="button" (click)="test(request)" ng class="btn btn-danger btn-m"><i class="fas fa-times"></i></button>
+
                           <button _ngcontent-mem-c54="" type="button" class="btn btn-secondary btn-m">
                             <i _ngcontent-mem-c54="" class="fas fa-search">
 
-                          </i>
-                        </button>
-                      </td>
-                   
-                    </tr>
-                    
-                  </tbody>
-                  <tfoot>
+                            </i>
+                          </button>
+                        </td>
 
-                  </tfoot>
-                </table>
+                      </tr>
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+
+
+
+
+
               </div>
             </div>
-            <div class="d-flex justify-content-between">
-                   
-              <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing
-                  1 to 10 of 57 entries
-              </div>
-          
-              <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                  <ul class="pagination">
-                      <li class="paginate_button page-item previous disabled" id="example1_previous">
-                          <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0"
-                              class="page-link">Previous</a>
-                      </li>
-                      <li class="paginate_button page-item active"><a href="#"
-                              aria-controls="example1" data-dt-idx="1" tabindex="0"
-                              class="page-link">1</a></li>
-                      <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                              data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                      <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                              data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                      <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                              data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                      <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                              data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                      <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                              data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                      <li class="paginate_button page-item next" id="example1_next"><a href="#"
-                              aria-controls="example1" data-dt-idx="7" tabindex="0"
-                              class="page-link">Next</a></li>
-                  </ul>
-              </div>
-          
-      </div>
           </div>
-        </div>
+        </form>
       </div>
 
     </div>
   </section>
   <section class="content mt-4">
     <div class="container-fluid">
-    <div class="card">
+      <div class="card">
         <div class="card-header">
-            
+
           <h3 class="card-title">
             <i class="fas fa-table"></i>
-             Modify Current Request Approve Flow
+            Modify Current Request Approve Flow
           </h3>
-        
-        
-      </div>
-      <div class="mb-2"></div>
-      <div class="mb-2">
-        <div class="float-right">
-          <div class="col-sm-12">
-            
-            <button class="btn btn-block btn-primary" routerLink="/add-approveflow">
-              <i class="fas fa-plus"></i>
-              Create
-            </button>
-          </div>
+
+
         </div>
-      
-      </div>
-        <form>
-            <div class="card-body">
-              <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6"></div>
-                  <div class="col-sm-12 col-md-6"></div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
-                      aria-describedby="example2_info">
-                      <thead>
-                        <tr>
-                          <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                            aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">State
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                            aria-label="Browser: activate to sort column ascending">Approve State</th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                            aria-label="Platform(s): activate to sort column ascending">Approver Name</th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                            aria-label="Engine version: activate to sort column ascending">Organize / Project</th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                            aria-label="CSS grade: activate to sort column ascending">Type</th>
-                          <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">
-                            Delete</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                       
-                        <tr class="odd" *ngFor="let approveflows of approveflow ">
-                          <td class="dtr-control sorting_1" tabindex="0">{{approveflows.appStateCode}}</td>
-                          <td>{{approveflows.description}}</td>
-                          <td>{{approveflows.approverName}}</td>
-                          <td>{{approveflows.orgPrjCode}}</td>
-                          <td>{{approveflows.appTypeCode}}</td>
-                          <td>
-                            <div class="col-md-6">
-                              <button _ngcontent-xyo-c146="" type="button" class="btn btn-danger btn-m"><i _ngcontent-xyo-c146="" class="fas fa-times"></i></button>
-                            </div>
-                            
-                                                 
-                        </td>
-                        </tr>
-                        
-                      
-                      </tbody>
-                      <tfoot>
-    
-                      </tfoot>
-                    </table>
-                  </div>
-                </div>
-                
-                
-              </div>
-              
+        <div class="mb-2"></div>
+        <div class="mb-2">
+          <div class="float-right">
+            <div class="col-sm-12">
+
+              <button class="btn btn-block btn-primary" routerLink="/add-approveflow">
+                <i class="fas fa-plus"></i>
+                Create
+              </button>
             </div>
-                <!-- footer -->
-                <div class="card-footer">
-                 
-    
+          </div>
+
+        </div>
+        <form>
+          <div class="card-body">
+            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+              <div class="row">
+                <div class="col-sm-12 col-md-6"></div>
+                <div class="col-sm-12 col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
+                    aria-describedby="example2_info">
+                    <thead>
+                      <tr>
+                        <th class="sorting sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">State
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="Browser: activate to sort column ascending">Approve State</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="Platform(s): activate to sort column ascending">Approver Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="Engine version: activate to sort column ascending">Organize / Project</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                          aria-label="CSS grade: activate to sort column ascending">Type</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">
+                          Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr class="odd" *ngFor="let approveflows of approveflow ">
+                        <td class="dtr-control sorting_1" tabindex="0">{{approveflows.appStateCode}}</td>
+                        <td>{{approveflows.description}}</td>
+                        <td>{{approveflows.approverName}}</td>
+                        <td>{{approveflows.orgPrjCode}}</td>
+                        <td>{{approveflows.appTypeCode}}</td>
+                        <td>
+                          <div class="col-md-6">
+                            <button _ngcontent-xyo-c146="" type="button" class="btn btn-danger btn-m">
+                              <i _ngcontent-xyo-c146="" class="fas fa-times"></i>
+                            </button>
+                          </div>
+
+
+                        </td>
+                      </tr>
+
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                  </table>
                 </div>
+              </div>
+
+
+            </div>
+
+          </div>
+          <!-- footer -->
+          <div class="card-footer">
+
+
+          </div>
         </form>
-       
-       
-</div>
-</div>
-</section>
-
-</div>
 
 
+      </div>
+    </div>
+  </section>
+
+</div>

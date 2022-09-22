@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as $ from "jquery";
-import { LeaveType } from '../models/request.model';
+import { LeaveType, RequestAll } from '../models/request.model';
 import { Request } from '../models/request.model';
 import { RequestService } from '../services/request.service';
 import { Router } from '@angular/router';
@@ -15,9 +15,11 @@ import * as moment from 'moment';
 })
 export class CreateRequestComponent implements OnInit {
   requests : Request[] = [];
+  requestsEmp : RequestAll[]=[];
   leavetype : LeaveType[] = [];
   constructor(private requestservice:RequestService,private router:Router) { }
   
+ 
   AddLeaveRequest: Request = {
     leaveNo : "" ,
     leaveType : "",
@@ -34,7 +36,7 @@ export class CreateRequestComponent implements OnInit {
     currentLeaveState :0,
     projectSiteCode : 0,
     ProjectSiteAllowance : 0,
-    
+    siteMasterCode : "",
   };
   ngOnInit(): void {
     this.requestservice.GetLeaveType()
@@ -42,6 +44,16 @@ export class CreateRequestComponent implements OnInit {
       next: (leavetype) => {
         this.leavetype = leavetype;
         //console.log(leavetype)
+      },
+      error: (response) =>{
+        console.log(response);
+      }
+    });
+    this.requestservice.GetEmployeeSite()
+    .subscribe({
+      next: (requestsEmp) => {
+        this.requestsEmp = requestsEmp;
+        console.log(requestsEmp)
       },
       error: (response) =>{
         console.log(response);
@@ -62,6 +74,7 @@ export class CreateRequestComponent implements OnInit {
     this.router.navigateByUrl('/request-management');
     //console.log(this.AddLeaveRequest);
   }
+ 
   
   
 
