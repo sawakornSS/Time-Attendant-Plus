@@ -34,6 +34,17 @@ img{
 .color-main{
     color: #FABF26;
 }
+td{
+    text-align: center;
+}
+.w1{
+    width: 80px;
+}
+.btn-center{
+    display: block;
+    margin: auto;
+    padding: 3px;
+}
 
 /* .wallpaper{
     display: block;
